@@ -12,7 +12,7 @@
 - [ ] Draw patient portal and admin screens for the concepts not chosen, if needed
 - [ ] Owner switches on P1 to P7 (steps in docs/SAFEGUARDS.md)
 - [ ] Full ABP review (v2.1 to v3), using the riskmandate.ai format
-- [ ] Consider "Find a surgeon" and "Research and reports" pages, as on the NZ site
+- [x] Add "Find a surgeon" and "Research and reports" pages, as on the NZ site
 - [x] Add CI checks C1 to C5 from the ABP
 - [ ] Mr Gupte picks a design concept
 - [ ] Restyle the site to the chosen concept

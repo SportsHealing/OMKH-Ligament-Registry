@@ -22,6 +22,6 @@ Approved by the user on 2026-11-22. Some are done in the repo. The rest need a f
 5. **P4 Workflow permission.** GitHub, Settings, Applications, Claude, Configure. Remove the "Workflows" write permission. Agents then cannot change CI. Grant it again only when you want CI changed.
 6. **P5 Google Drive.** claude.ai, Settings, Connectors. Disconnect Google Drive, or keep it off for this project's sessions.
 7. **P6 Spend cap.** claude.ai, Settings, Usage or Billing. Set a monthly limit you are comfortable with.
-8. **P7 Repo visibility.** Your call. The repo is public. It holds only invented data. A private repo with a public Pages site needs a paid GitHub plan. Recommendation: stay public while it is a mock-up.
+8. **P7 Repo visibility.** Decided 2026-11-22: stays public. The repo is public. It holds only invented data. A private repo with a public Pages site needs a paid GitHub plan. Recommendation: stay public while it is a mock-up.
 
 Tell the conductor when each is done so the ABP barrier tags can be updated.
