@@ -118,7 +118,7 @@
       if (hosp && p.hospital !== hosp) return;
       var st = A.status(p);
       st.overdue.forEach(function (o) { items.push([p, o.label + " scores", "Was due " + fmt(o.due), "err"]); });
-      st.partial.forEach(function (o) { items.push([p, o + " Marx score", "Not returned", "due"]); });
+      st.partial.forEach(function (o) { items.push([p, o.label + " " + o.missing + " score", "Not returned", "due"]); });
       if (st.dueSoon) items.push([p, st.dueSoon.label + " scores", "Due " + fmt(st.dueSoon.date), "due"]);
       if (st.preopDue) items.push([p, "Before-surgery scores", "Needed before surgery", "due"]);
     });
@@ -174,7 +174,7 @@
       if (!A.showErrors(rf, errs)) return;
       var s = A.load(), id = "n" + (s.added.length + 1);
       s.added.push({ id: id, added: true, name: v("fname") + " " + v("lname"), sex: v("sex"), dob: dob, nhs: A.nhsFormat(nhs), phone: v("phone"), hospital: v("hosp"), surgeon: v("cons"), knee: knee.value,
-        injury: { date: REG.today, how: "Not yet recorded.", findings: "Awaiting assessment.", marxBefore: 0 }, surgery: null, scores: {}, consent: { status: "pending", date: "", research: false },
+        injury: { date: REG.today, how: "Not yet recorded.", findings: "Awaiting assessment." }, surgery: null, scores: {}, consent: { status: "pending", date: "", research: false },
         scans: [], letters: [], rehab: [], access: [[REG.today, ME, "Registered patient"]] });
       A.save(); A.toast("Patient saved.");
       A.go("register/" + id);

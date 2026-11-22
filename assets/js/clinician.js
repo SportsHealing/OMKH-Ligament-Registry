@@ -38,9 +38,9 @@
     var s = A.load(); s.viewed = s.viewed || {};
     if (!s.viewed[id]) { s.viewed[id] = 1; A.save(); A.logAccess(id, ME, "Opened record in clinic"); p = A.patient(id); }
     var st = A.status(p);
-    function sc(tp) { var x = p.scores[tp]; return x && x.v[3] != null ? x.v[3] : null; }
+    function sc(tp) { var x = p.scores[tp]; return x && x.v[A.M.ikdc] != null ? x.v[A.M.ikdc] : null; }
     var next = st.next ? (st.next.date ? A.fmtMonth(st.next.date) : "Before surgery") : "None";
-    var summary = '<div class="scorerow" aria-label="KOOS Sport by time point"><div><b>' + (sc("pre") == null ? "-" : sc("pre")) + '</b><span>Before</span></div><div><b>' + (sc("y1") == null ? "-" : sc("y1")) + '</b><span>1 year</span></div><div><b>' + (sc("y2") == null ? "-" : sc("y2")) + '</b><span>2 years</span></div><div class="due"><b style="font-size:18px;line-height:34px">' + (st.dueSoon ? "Due now" : "Next") + '</b><span>' + esc(next) + '</span></div></div>';
+    var summary = '<p class="small muted" style="margin:0 0 4px">IKDC score, 0 to 100. Higher is better.</p><div class="scorerow" aria-label="IKDC by time point"><div><b>' + (sc("pre") == null ? "-" : sc("pre")) + '</b><span>Before</span></div><div><b>' + (sc("y1") == null ? "-" : sc("y1")) + '</b><span>1 year</span></div><div><b>' + (sc("y2") == null ? "-" : sc("y2")) + '</b><span>2 years</span></div><div class="due"><b style="font-size:18px;line-height:34px">' + (st.dueSoon ? "Due now" : "Next") + '</b><span>' + esc(next) + '</span></div></div>';
     var strip = '<div class="strip">' +
       '<div><span class="lbl">Born</span><span class="mono">' + fmt(p.dob) + '</span> (' + A.age(p.dob) + ')</div><div><span class="lbl">Sex</span>' + esc(p.sex) + '</div>' +
       '<div><span class="lbl">NHS no.</span><span class="mono">' + esc(p.nhs) + '</span></div><div><span class="lbl">Knee</span>' + esc(p.knee) + '</div>' +
@@ -53,7 +53,7 @@
     A.TPS.slice(1).forEach(function (t) {
       if (!p.surgery) return;
       var x = p.scores[t[0]];
-      if (x) checks.push([t[1] + " scores", !x.v.some(function (v) { return v === null; }), x.v.some(function (v) { return v === null; }) ? "Marx missing" : null]);
+      if (x) checks.push([t[1] + " scores", !x.v.some(function (v) { return v === null; }), x.v.some(function (v) { return v === null; }) ? A.MEASURES.filter(function (m, i) { return x.v[i] === null; }).map(function (m) { return m.short; }).join(", ") + " missing" : null]);
       else if (st.overdue.some(function (o) { return o.tp === t[0]; })) checks.push([t[1] + " scores", false, "Overdue"]);
       else if (st.dueSoon && st.dueSoon.tp === t[0]) checks.push([t[1] + " scores", false, "Due now"]);
     });
@@ -76,7 +76,7 @@
     return '<div class="view-title"><div><p class="muted" style="margin:0"><a href="#list">Patients</a> / Record</p><h1>' + esc(p.name) + '</h1><p class="muted" style="margin:0">' + esc(p.knee) + ' knee. ' + esc(p.surgery ? p.surgery.type : "Awaiting surgery") + '. ' + esc(p.hospital) + '.</p></div><div style="flex:0 1 420px;min-width:min(100%,300px)">' + summary + '</div></div>' +
       strip +
       '<div class="layout" style="margin-top:20px"><aside class="card"><h2>Data status</h2>' + cl + '<div style="margin-top:16px">' + action + '</div>' + (reminded ? '<p class="small muted" style="margin-top:8px">Reminder sent ' + fmt(reminded) + '.</p>' : '') + '</aside>' +
-      '<div class="main"><div class="two"><section class="card"><h2>Injury</h2><dl class="facts"><dt>Date</dt><dd class="mono">' + fmt(p.injury.date) + '</dd><dt>How</dt><dd>' + esc(p.injury.how) + '</dd><dt>Findings</dt><dd>' + esc(p.injury.findings) + '</dd><dt>Marx before</dt><dd>' + p.injury.marxBefore + ' of 16</dd></dl></section>' +
+      '<div class="main"><div class="two"><section class="card"><h2>Injury</h2><dl class="facts"><dt>Date</dt><dd class="mono">' + fmt(p.injury.date) + '</dd><dt>How</dt><dd>' + esc(p.injury.how) + '</dd><dt>Findings</dt><dd>' + esc(p.injury.findings) + '</dd></dl></section>' +
       '<section class="card"><h2>Surgery</h2>' + surg + '</section></div>' +
       '<section class="card"><h2>Scores: baseline, 1 year and 2 years</h2>' + A.multiples(p, 1) + A.scoreTable(p) + '</section>' +
       '<div class="two"><section class="card"><h2>Timeline</h2><ol class="timeline">' + tl.map(function (t) { return '<li class="done"><span class="when mono">' + fmt(t[0]) + '</span><br><strong>' + esc(t[1]) + '</strong><br><span class="muted">' + esc(t[2]) + '</span></li>'; }).join("") + '</ol></section>' +
@@ -135,8 +135,11 @@
     }
     return '<div class="view-title"><h1>My outcomes</h1></div><p class="note"><strong>All figures on this page are invented.</strong> They do not describe any real surgeon, hospital or registry.</p>' +
       '<div class="two" style="margin-top:20px">' + pair("Revision within 5 years", n.revisionMine, n.revisionNat, "%", 6, "<strong>Figure 2.</strong> Lower is better. You: " + n.casesMine + " cases. National: " + n.casesNat + " cases. Invented.") +
-      pair("KOOS Sport at 2 years, median", n.sport2yMine, n.sport2yNat, "", 100, "<strong>Figure 3.</strong> 0 to 100. Higher is better. Invented.") +
-      pair("Back to the same sport by 2 years", n.returnRateMine, n.returnRateNat, "%", 100, "<strong>Figure 4.</strong> Higher is better. Invented.") +
+      pair("IKDC at 2 years, median", n.ikdc2yMine, n.ikdc2yNat, "", 100, "<strong>Figure 3.</strong> 0 to 100. Higher is better. Invented.") +
+      pair("KOOS Sport at 2 years, median", n.sport2yMine, n.sport2yNat, "", 100, "<strong>Figure 4.</strong> 0 to 100. Higher is better. Invented.") +
+      pair(A.PAIN.label + " at 2 years, median", n.pain2yMine, n.pain2yNat, "", A.PAIN.max, "<strong>Figure 5.</strong> " + A.PAIN.min + " to " + A.PAIN.max + ". " + (A.PAIN.lowerBetter ? "Lower" : "Higher") + " is better. Invented.") +
+      pair("SANE at 2 years, median", n.sane2yMine, n.sane2yNat, "%", 100, "<strong>Figure 6.</strong> 0 to 100%. Higher is better. Invented.") +
+      pair("Back to the same sport by 2 years", n.returnRateMine, n.returnRateNat, "%", 100, "<strong>Figure 7.</strong> Higher is better. Invented.") +
       '<section class="card"><h2>Your cases by year</h2><div class="scroll"><table class="ruled"><thead><tr><th scope="col">Year</th><th scope="col" class="num">Cases</th><th scope="col" class="num">Revision rate</th></tr></thead><tbody>' +
       n.perYear.map(function (r) { return '<tr><td>' + r[0] + '</td><td class="num">' + r[1] + '</td><td class="num">' + r[2] + '%</td></tr>'; }).join("") + '</tbody></table></div><p class="small muted" style="margin-top:8px">Invented figures for the demo year.</p></section></div>';
   }

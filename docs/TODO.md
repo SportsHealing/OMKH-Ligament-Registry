@@ -8,6 +8,8 @@
 - [ ] Switch on GitHub Pages: Settings, Pages, Source: GitHub Actions
 
 ## Next
+- [ ] Confirm which instrument the "short form pain score" is (currently a 0 to 10 pain rating, in REG.painScore in assets/js/data.js)
+- [ ] Check the github-pages environment allows main, then confirm the site is live
 - [ ] Mr Gupte reviews the 5 concepts (Claude Design canvas) and the live site
 - [ ] Draw patient portal and admin screens for the concepts not chosen, if needed
 - [ ] Owner switches on P1 to P7 (steps in docs/SAFEGUARDS.md)

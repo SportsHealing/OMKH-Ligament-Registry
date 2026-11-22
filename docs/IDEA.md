@@ -21,11 +21,22 @@ Checked against aclregistry.nz on 2026-11-22. Points marked (unchecked) are from
 - Records every primary and revision ACL reconstruction. (unchecked)
 - Surgeon fills a short form at surgery: graft type, fixation, meniscus and cartilage findings. (unchecked)
 - Patients fill outcome scores before surgery and at 1, 2, 5 and 10 years. (unchecked)
-- Scores used: KOOS and the Marx activity scale. (unchecked)
+- Scores used: KOOS and an activity scale. (unchecked)
 - Main outcome tracked: revision surgery. (unchecked)
 - Publishes annual reports so surgeons can compare results. (unchecked)
 
 Ideas to borrow for the UK site: a "Find a surgeon" page and a "Research and reports" page.
+
+## Outcome scores for the UK version
+
+Asked for by the clinical lead. Details from mykneescore.com.
+
+- **IKDC Subjective Knee Evaluation Form.** 18 questions. One score from 0 to 100. Higher is better. Bands: normal 90 or more, near normal 80 to 89, abnormal 70 to 79, severely abnormal under 70. https://www.mykneescore.com/advanced/ikdc.html
+- **KOOS.** 42 questions. Five subscales, each 0 to 100, higher is better: pain, symptoms, daily living (ADL), sport and recreation, quality of life. https://www.mykneescore.com/advanced/koos.html
+- **Short form pain score.** Shown in the mock-up as a 0 to 10 pain rating: 0 is no pain, 10 is the worst pain imaginable. Lower is better. The exact instrument is still to be confirmed. All its wording and logic sits in `REG.painScore` in `assets/js/data.js`, so it can be swapped in one place. https://www.mykneescore.com/advanced/index.html
+- **SANE (Single Assessment Numeric Evaluation).** One question: "How would you rate your knee today, as a percentage of normal?" 0 to 100%. Higher is better. https://www.mykneescore.com/advanced/sane.html
+
+Collected before surgery and at 1, 2, 5 and 10 years.
 
 ## What the UK version adds
 

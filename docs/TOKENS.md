@@ -14,8 +14,10 @@ Sub-agent figures come from the platform's usage report. Conductor figures are e
 | 8 | Web fetch | NZ and riskmandate retry (WebFetch blocked, used curl) | ~7k | |
 | 9 | Conductor | Rename, safeguards, CI, docs | ~60k | estimate |
 | 10 | Conductor | Find a surgeon and Research pages, tests | ~45k | estimate |
+| 11 | Conductor | Palette, mykneescore research, checks | ~40k | estimate |
+| 12 | Scores agent | Swap scores to IKDC, KOOS, pain, SANE | 145k | |
 
-**Phase 1 total: about 905k of 1.2M budget.**
+**Phase 1 total: about 1.09M of 1.2M budget (91%, over the 80% warning line).**
 
 Lesson: the site build should have been split into two agent runs (public pages, then demo app).
 
