@@ -5,7 +5,7 @@
 - [x] 5 design concepts in Claude Design
 - [x] Synthetic user review of the concepts
 - [x] Build the clickable mock-up site
-- [x] Deploy to GitHub Pages
+- [ ] Switch on GitHub Pages: Settings, Pages, Deploy from branch, main, / (root)
 
 ## Next
 - [ ] Mr Gupte reviews the 5 concepts (Claude Design canvas) and the live site
