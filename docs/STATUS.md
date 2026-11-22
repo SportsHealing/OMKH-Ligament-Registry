@@ -4,7 +4,7 @@ Last updated: 2026-11-22
 
 ## Stage
 
-Phase 1 built and on main. Waiting for GitHub Pages to be switched on, then Mr Gupte's review.
+Phase 1 live at https://sportshealing.github.io/OMKH-Ligament-Registry/ . Waiting for Mr Gupte's review.
 
 ## Done
 
@@ -39,3 +39,4 @@ Phase 1 built and on main. Waiting for GitHub Pages to be switched on, then Mr G
 | 2026-11-22 | Renamed to UK Ligament Registry. Mr Chinmay Gupte named as clinical lead. NZ facts checked. ABP v2.1. CI checks C1 to C5 and deploy gate added. |
 | 2026-11-22 | Added Find a surgeon and Research pages. Two-row desktop header. Repo stays public (owner decision, ABP P7). |
 | 2026-11-22 | Bronze and green palette. Scores changed to IKDC, KOOS, short form pain score and SANE (from mykneescore.com). Marx removed. |
+| 2026-11-22 | First successful deploy to GitHub Pages. |
