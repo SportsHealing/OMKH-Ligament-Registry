@@ -1,34 +1,37 @@
-/* OMKH Ligament Registry mock-up. Concept 1: Clear Ward. */
+/* UK Ligament Registry mock-up. Concept 1 layout, bronze and green palette. */
 :root {
-  --bg: #F6F9F8; --surface: #FFFFFF; --ink: #12302B; --muted: #4A625D;
-  --accent: #0F6E66; --accent-ink: #FFFFFF; --accent-hover: #0A4F49;
-  --soft: #E2F0EC; --soft-ink: #0A4F49; --line: #C9DBD6; --line2: #E3EDEA;
-  --warn-bg: #FFF1D6; --warn: #6B4200; --err-bg: #FDECEA; --err: #A3231B;
-  --banner-bg: #12302B; --banner-ink: #FFFFFF;
-  --c-base: #6A7F7A; --c-1y: #B26A00; --c-2y: #0F6E66; --c-nat: #6A7F7A;
-  --focus: #B26A00;
+  --bg: #FAF7EF; --surface: #FFFFFF; --ink: #1C2B22; --muted: #4F5A4F;
+  --accent: #1F5C40; --accent-ink: #FFFFFF; --accent-hover: #164530;
+  --bronze: #8A5A1F; --bronze-ink: #FFFFFF; --bronze-hover: #6E4716; --bronze-soft: #F1E4CC;
+  --soft: #E3EDE5; --soft-ink: #164530; --line: #D8D1BD; --line2: #ECE6D6;
+  --warn-bg: #FBEBCB; --warn: #6B4200; --err-bg: #FDECEA; --err: #A3231B;
+  --banner-bg: #163A2A; --banner-ink: #F3E3C3;
+  --c-base: #7A7F73; --c-1y: #9A6A2A; --c-2y: #1F5C40; --c-nat: #7A7F73;
+  --focus: #9A6A2A;
   --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
-  --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0F1715; --surface: #16211E; --ink: #E4EEEB; --muted: #A9BCB7;
-    --accent: #4FC1B4; --accent-ink: #06201D; --accent-hover: #7AD6CB;
-    --soft: #1D3330; --soft-ink: #BDEBE4; --line: #334844; --line2: #24332F;
+    --bg: #121712; --surface: #1A221C; --ink: #EEE8DA; --muted: #BAB3A1;
+    --accent: #7CC29A; --accent-ink: #0E1B13; --accent-hover: #A2D8B8;
+    --soft: #22322A; --soft-ink: #CDE8D6; --line: #3F4739; --line2: #2A3129;
     --warn-bg: #3A2C12; --warn: #F5C77A; --err-bg: #3A1714; --err: #FFA59B;
-    --banner-bg: #E2F0EC; --banner-ink: #12302B;
-    --c-base: #8FA6A1; --c-1y: #F0A94B; --c-2y: #4FC1B4; --c-nat: #8FA6A1; --focus: #F0A94B;
+    --bronze: #D9A55B; --bronze-ink: #1C1408; --bronze-hover: #E8BF80; --bronze-soft: #3A2E1C;
+    --banner-bg: #E3D3AE; --banner-ink: #1C2B22;
+    --c-base: #A39D8C; --c-1y: #D9A55B; --c-2y: #7CC29A; --c-nat: #A39D8C; --focus: #D9A55B;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0F1715; --surface: #16211E; --ink: #E4EEEB; --muted: #A9BCB7;
-  --accent: #4FC1B4; --accent-ink: #06201D; --accent-hover: #7AD6CB;
-  --soft: #1D3330; --soft-ink: #BDEBE4; --line: #334844; --line2: #24332F;
+  --bg: #121712; --surface: #1A221C; --ink: #EEE8DA; --muted: #BAB3A1;
+  --accent: #7CC29A; --accent-ink: #0E1B13; --accent-hover: #A2D8B8;
+  --soft: #22322A; --soft-ink: #CDE8D6; --line: #3F4739; --line2: #2A3129;
   --warn-bg: #3A2C12; --warn: #F5C77A; --err-bg: #3A1714; --err: #FFA59B;
-  --banner-bg: #E2F0EC; --banner-ink: #12302B;
-  --c-base: #8FA6A1; --c-1y: #F0A94B; --c-2y: #4FC1B4; --c-nat: #8FA6A1; --focus: #F0A94B;
+    --bronze: #D9A55B; --bronze-ink: #1C1408; --bronze-hover: #E8BF80; --bronze-soft: #3A2E1C;
+  --banner-bg: #E3D3AE; --banner-ink: #1C2B22;
+  --c-base: #A39D8C; --c-1y: #D9A55B; --c-2y: #7CC29A; --c-nat: #A39D8C; --focus: #D9A55B;
   color-scheme: dark;
 }
 
@@ -67,7 +70,12 @@ p { margin: 0 0 12px; }
 .site-nav a { display: flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 8px; text-decoration: none; color: var(--ink); font-weight: 500; }
 .site-nav a:hover { background: var(--soft); color: var(--soft-ink); }
 .site-nav a[aria-current="page"] { background: var(--soft); color: var(--soft-ink); font-weight: 700; box-shadow: inset 3px 0 0 var(--accent); }
-.site-nav a.try { background: var(--accent); color: var(--accent-ink); }
+.site-nav a.try { background: var(--bronze); color: var(--bronze-ink); }
+.site-nav a.try:hover { background: var(--bronze-hover); color: var(--bronze-ink); }
+.site-header { border-bottom: 3px solid var(--bronze); }
+.tag.ok { background: var(--soft); color: var(--soft-ink); }
+h1 { color: var(--ink); }
+.hero h1::after { content: ""; display: block; width: 64px; height: 4px; margin-top: 16px; border-radius: 2px; background: var(--bronze); }
 .site-nav a.try[aria-current="page"] { box-shadow: inset 0 0 0 3px var(--soft); }
 .js .site-nav.closed { display: none; }
 @media (min-width: 1000px) {
