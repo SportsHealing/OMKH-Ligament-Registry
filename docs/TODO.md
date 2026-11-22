@@ -1,7 +1,7 @@
 # To do
 
 ## Now
-- [ ] ABP review agent produces v2
+- [x] ABP review agent produces v2
 - [ ] 5 design concepts in Claude Design
 - [ ] Synthetic user review of the concepts
 - [ ] Build the clickable mock-up site
