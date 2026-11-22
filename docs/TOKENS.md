@@ -9,5 +9,11 @@ Sub-agent figures come from the platform's usage report. Conductor figures are e
 | 3 | ABP reviewer | ABP v1 to v2 | 73k | |
 | 4 | UI/UX agent | 5 concepts in Claude Design + repo copies | 180k | |
 | 5 | Synthetic users | 5 personas review concepts | 82k | one agent, 5 roles |
+| 6 | UI/UX agent | Build full clickable site and tests | 278k | **over the 250k per-agent cap** |
+| 7 | Conductor | Coordination, checks, deploy | ~90k | estimate |
+
+**Phase 1 total: about 790k of 1.2M budget.**
+
+Lesson: the site build should have been split into two agent runs (public pages, then demo app).
 
 Budget for phase 1: about 1.2M tokens. See ABP section 6.
