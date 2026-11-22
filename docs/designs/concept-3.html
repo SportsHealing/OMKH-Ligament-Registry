@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept 3: Home Straight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF8F1}
+.A{font-family:Nunito,system-ui,sans-serif;color:#2B211C;background:#FFF8F1;font-size:18px;line-height:1.6}
+.A a{color:#A2471F}.A a:hover{color:#7E3415}
+.A .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.A .mock{display:inline-block;background:#F3E3D3;color:#5E4E44;font-size:14px;font-weight:700;border-radius:99px;padding:4px 14px}
+.A header{padding:20px 0}
+.A .bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.A .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px;color:#2B211C;text-decoration:none}
+.A nav ul{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:6px;background:#FFFFFF;border-radius:99px;box-shadow:0 1px 0 #EAD8C6}
+.A nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:99px;color:#2B211C;text-decoration:none;font-weight:700;font-size:16px}
+.A nav a[aria-current]{background:#2B211C;color:#FFF8F1}
+.A nav .try{background:#A2471F;color:#FFFFFF}
+.A .hero{text-align:center;padding:72px 0 48px}
+.A h1{font-size:56px;line-height:1.1;font-weight:800;margin:16px auto 20px;max-width:14em;letter-spacing:-0.01em}
+.A .lead{font-size:21px;color:#5E4E44;max-width:32em;margin:0 auto 32px}
+.A .btn{display:inline-flex;align-items:center;min-height:56px;padding:0 32px;border-radius:99px;background:#A2471F;color:#FFFFFF;font-weight:800;text-decoration:none;font-size:18px}
+.A .btn:hover{background:#7E3415;color:#FFFFFF}
+.A .next{max-width:560px;margin:56px auto 0;background:#FFFFFF;border-radius:28px;padding:28px 32px;text-align:left;display:flex;gap:20px;align-items:center;box-shadow:0 2px 0 #EAD8C6}
+.A .ring{flex:0 0 72px;height:72px;border-radius:50%;background:#E4EDDF;display:flex;align-items:center;justify-content:center}
+.A section{padding:56px 0}
+.A h2{font-size:36px;font-weight:800;margin:0 0 12px;line-height:1.2}
+.A .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.A .card{background:#FFFFFF;border-radius:28px;padding:32px;box-shadow:0 2px 0 #EAD8C6}
+.A .card h3{font-size:24px;margin:0 0 8px;font-weight:800}
+.A .card p{color:#5E4E44;margin:0 0 16px}
+.A .big{background:#3F5E3A;color:#FFFFFF}
+.A .big p{color:#E4EDDF}.A .big a{color:#FFFFFF}
+.A ol.path{list-style:none;margin:32px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:12px}
+.A ol.path li{flex:1 1 160px;background:#FFFFFF;border-radius:20px;padding:20px;box-shadow:0 2px 0 #EAD8C6}
+.A ol.path b{display:block;font-size:20px}
+.A ol.path span{color:#5E4E44;font-size:16px}
+.A .safe{background:#F3E3D3;border-radius:32px;padding:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;align-items:center}
+.A footer{padding:40px 0;color:#5E4E44;font-size:16px;text-align:center}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF8F1}
+.B{font-family:Nunito,system-ui,sans-serif;color:#2B211C;background:#FFF8F1;font-size:17px;line-height:1.6}
+.B a{color:#A2471F}.B a:hover{color:#7E3415}
+.B .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.B .mock{display:inline-block;background:#F3E3D3;color:#5E4E44;font-size:14px;font-weight:700;border-radius:99px;padding:4px 14px}
+.B header{padding:20px 0}
+.B .bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.B .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px;color:#2B211C;text-decoration:none}
+.B nav ul{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:6px;background:#FFFFFF;border-radius:99px;box-shadow:0 1px 0 #EAD8C6}
+.B nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:99px;color:#2B211C;text-decoration:none;font-weight:700;font-size:16px}
+.B nav a[aria-current]{background:#A2471F;color:#FFFFFF}
+.B .roles{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:8px 0 24px}
+.B .roles a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:99px;border:2px solid #EAD8C6;color:#2B211C;text-decoration:none;font-weight:700}
+.B .roles a[aria-current]{border-color:#3F5E3A;background:#E4EDDF;color:#2C4428}
+.B .hello{background:#FFFFFF;border-radius:28px;padding:28px 32px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;box-shadow:0 2px 0 #EAD8C6}
+.B .avatar{width:64px;height:64px;border-radius:50%;background:#F3E3D3;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;color:#7E3415}
+.B h1{font-size:32px;font-weight:800;margin:0;line-height:1.2}
+.B .facts{display:flex;flex-wrap:wrap;gap:8px 20px;color:#5E4E44;font-size:16px}
+.B .btn{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:99px;background:#A2471F;color:#FFFFFF;font:inherit;font-weight:800;border:0;cursor:pointer}
+.B .ghost{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:99px;border:2px solid #EAD8C6;background:#FFFFFF;color:#7E3415;font:inherit;font-weight:700;cursor:pointer}
+.B .story{list-style:none;margin:32px 0 48px;padding:0 0 0 40px;border-left:4px solid #EAD8C6;display:grid;gap:28px}
+.B .story>li{position:relative}
+.B .story>li::before{content:"";position:absolute;left:-54px;top:26px;width:24px;height:24px;border-radius:50%;background:#FFF8F1;border:4px solid #A2471F}
+.B .story>li.done::before{background:#3F5E3A;border-color:#3F5E3A}
+.B .story>li.wait::before{border-color:#B07A12;background:#FFF4D9}
+.B .card{background:#FFFFFF;border-radius:28px;padding:28px 32px;box-shadow:0 2px 0 #EAD8C6}
+.B .when{font-size:15px;font-weight:800;color:#7E3415;text-transform:uppercase;letter-spacing:.06em;margin:0 0 4px}
+.B h2{font-size:24px;font-weight:800;margin:0 0 12px}
+.B .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.B dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:0}
+.B dt{color:#5E4E44}.B dd{margin:0;font-weight:600}
+.B .chip{display:inline-block;font-size:15px;font-weight:800;padding:2px 12px;border-radius:99px}
+.B .ok{background:#E4EDDF;color:#2C4428}.B .warn{background:#FFF4D9;color:#6B4700}
+.B .scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px}
+.B .score{background:#FFF8F1;border-radius:20px;padding:16px}
+.B .score b{display:block;font-size:30px;font-weight:800;line-height:1.1}
+.B .score span{color:#5E4E44;font-size:15px}
+.B .story>li,.B .two>*{min-width:0}
+.B dl{grid-template-columns:max-content minmax(0,1fr)}
+@media (max-width:600px){.B .story{padding-left:22px}.B .story>li::before{left:-35px}.B .card,.B .hello{padding:20px}.B dl{grid-template-columns:1fr}}
+.B .scan{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding:12px 0;border-top:2px solid #FFF8F1}
+</style>
+</head>
+<body>
+<p style="margin:0;padding:10px 24px;background:#555;color:#fff;font:600 15px/1.4 system-ui,sans-serif">Concept 3: Home Straight. Screen A, home page.</p>
+<div class="A" id="home">
+<header><div class="wrap bar">
+<a class="brand" href="#home"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#A2471F"></circle><path d="M13 11c0 8 4 10 7 10s7 2 7 8" stroke="#FFF8F1" stroke-width="3" fill="none" stroke-linecap="round"></path></svg>OMKH Ligament Registry</a>
+<nav aria-label="Main"><ul>
+<li><a href="#home" aria-current="page">Home</a></li><li><a href="#patients">Patients</a></li><li><a href="#clinicians">Clinicians</a></li><li><a href="#admin">Administrators</a></li><li><a href="#security">Security</a></li><li><a class="try" href="#try">Try it out</a></li>
+</ul></nav>
+</div></header>
+<main>
+<div class="wrap hero">
+<span class="mock">Mock-up. Not real patient data.</span>
+<h1>Your knee, from injury to back on your feet.</h1>
+<p class="lead">Keep your scans, letters and scores in one place. We will tell you when it is time for your next check-in.</p>
+<a class="btn" href="#try">See a patient record</a>
+<div class="next" aria-label="Example reminder">
+<div class="ring"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3F5E3A" stroke-width="2" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg></div>
+<div><strong style="font-size:19px">Hi Megan, one short form is waiting.</strong><br><span style="color:#5E4E44">Your 2-year activity score. It takes about two minutes.</span></div>
+</div>
+</div>
+
+<section id="patients"><div class="wrap">
+<div class="cards">
+<div class="card big"><h3>If you have hurt your knee</h3><p>Your record follows you from your first scan to ten years after surgery. You choose who can see it, and you can change your mind.</p><a href="#patients">What patients can do</a></div>
+<div class="card" id="clinicians"><h3>If you are a surgeon</h3><p>See the whole knee history at once. Compare your results with the national picture.</p><a href="#clinicians">For clinicians</a></div>
+<div class="card" id="admin"><h3>If you run the clinic</h3><p>Register patients quickly and see which forms are still missing.</p><a href="#admin">For clinic staff</a></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<h2>What happens after surgery</h2>
+<p style="color:#5E4E44;max-width:36em;margin:0">We ask how your knee feels at a few set times. Each form is short. Your answers help surgeons learn what works best.</p>
+<ol class="path">
+<li><b>Before surgery</b><span>Your starting point</span></li>
+<li><b>After 1 year</b><span>How are you getting on?</span></li>
+<li><b>After 2 years</b><span>Back to sport?</span></li>
+<li><b>After 5 years</b><span>Long-term check</span></li>
+<li><b>After 10 years</b><span>Last form</span></li>
+</ol>
+</div></section>
+
+<section id="security"><div class="wrap safe">
+<div><h2>Only the people you choose can read it</h2></div>
+<div><p style="margin:0 0 12px">The plan is to lock your record on your own device before it is sent. The server stores it but cannot read it. This uses the sgit design and AES-256-GCM encryption.</p>
+<p style="margin:0;color:#5E4E44">This is a mock-up. Nothing here is really encrypted, and how keys are recovered is still being worked out.</p></div>
+</div></section>
+
+<section id="try"><div class="wrap" style="text-align:center">
+<h2>Have a look around</h2>
+<p style="color:#5E4E44">Try the demo as a patient, a surgeon or a member of the clinic team.</p>
+<a class="btn" href="#try">Try it out</a>
+</div></section>
+</main>
+<footer><div class="wrap">OMKH Ligament Registry is a working name. Mock-up. Not real patient data.</div></footer>
+</div>
+<p style="margin:0;padding:10px 24px;background:#555;color:#fff;font:600 15px/1.4 system-ui,sans-serif">Concept 3: Home Straight. Screen B, Try it out, clinician view.</p>
+<div class="B" id="try">
+<header><div class="wrap bar">
+<a class="brand" href="#home"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#A2471F"></circle><path d="M13 11c0 8 4 10 7 10s7 2 7 8" stroke="#FFF8F1" stroke-width="3" fill="none" stroke-linecap="round"></path></svg>OMKH Ligament Registry</a>
+<nav aria-label="Main"><ul>
+<li><a href="#home">Home</a></li><li><a href="#patients">Patients</a></li><li><a href="#clinicians">Clinicians</a></li><li><a href="#admin">Administrators</a></li><li><a href="#security">Security</a></li><li><a href="#try" aria-current="page">Try it out</a></li>
+</ul></nav>
+</div></header>
+<div class="wrap">
+<div class="roles"><span class="mock">Mock-up. Not real patient data.</span><nav aria-label="Demo role" style="display:flex;flex-wrap:wrap;gap:10px"><a href="#try">Patient</a><a href="#try" aria-current="page">Clinician</a><a href="#try">Clinic team</a></nav></div>
+<div class="hello">
+<div style="display:flex;gap:20px;align-items:center">
+<div class="avatar" aria-hidden="true">ML</div>
+<div><h1>Megan Lloyd</h1>
+<div class="facts"><span>Born 14 Mar 2001 (25)</span><span>Female</span><span>NHS 999 042 1187</span><span>Right knee</span></div></div>
+</div>
+<div style="text-align:right"><span class="chip ok">Consent given 2 Mar 2023</span></div>
+</div>
+<ol class="story">
+<li class="done"><div class="card"><p class="when">21 January 2023</p><h2>Injury</h2>
+<p style="margin:0 0 12px">Hurt her right knee landing from a jump at netball. No contact. Played at club level, four times a week.</p>
+<dl><dt>ACL</dt><dd>Complete tear</dd><dt>Meniscus</dt><dd>Medial tear, posterior horn</dd><dt>Marx before injury</dt><dd>16 of 16</dd></dl></div></li>
+<li class="done"><div class="card"><p class="when">22 April 2023</p><h2>Surgery with Ms Rachel Bennett</h2>
+<div class="two"><dl><dt>Operation</dt><dd>Primary ACL reconstruction</dd><dt>Graft</dt><dd>Hamstring, 4-strand, 8.5 mm</dd><dt>Fixation</dt><dd>Button at femur, screw at tibia</dd></dl>
+<dl><dt>Meniscus</dt><dd>Medial repair, all-inside</dd><dt>Cartilage</dt><dd>No damage above grade 2</dd><dt>Op note</dt><dd><span class="chip ok">Signed</span></dd></dl></div></div></li>
+<li class="done"><div class="card"><p class="when">March 2023 to April 2025</p><h2>How her knee has felt</h2>
+<svg viewBox="0 0 1000 220" width="100%" role="img" aria-label="KOOS Sport rose from 35 before surgery to 70 at one year and 85 at two years">
+<path d="M80 190 H940" stroke="#EAD8C6" stroke-width="2"></path>
+<path d="M80 130.5 C 260 110, 330 80, 510 71 S 800 50, 940 45.5" fill="none" stroke="#A2471F" stroke-width="5" stroke-linecap="round"></path>
+<g fill="#A2471F"><circle cx="80" cy="130.5" r="9"></circle><circle cx="510" cy="71" r="9"></circle><circle cx="940" cy="45.5" r="9"></circle></g>
+<g font-family="Nunito,sans-serif" font-size="18" font-weight="800" fill="#2B211C"><text x="80" y="112" text-anchor="middle">35</text><text x="510" y="52" text-anchor="middle">70</text><text x="940" y="27" text-anchor="middle">85</text></g>
+<g font-family="Nunito,sans-serif" font-size="16" fill="#5E4E44"><text x="80" y="214" text-anchor="middle">Before surgery</text><text x="510" y="214" text-anchor="middle">1 year</text><text x="940" y="214" text-anchor="middle">2 years</text></g>
+</svg>
+<p style="margin:4px 0 0;color:#5E4E44;font-size:15px">KOOS Sport and recreation, 0 to 100. Higher is better.</p>
+<div class="scores">
+<div class="score"><b>92</b><span>KOOS Pain, 2 years</span></div>
+<div class="score"><b>97</b><span>KOOS Daily living, 2 years</span></div>
+<div class="score"><b>75</b><span>KOOS Quality of life, 2 years</span></div>
+<div class="score"><b>11</b><span>Marx, 1 year (2 before surgery)</span></div>
+</div></div></li>
+<li class="wait"><div class="card" style="border:2px solid #E8C77A"><p class="when" style="color:#6B4700">Waiting since April 2025</p><h2>2-year Marx score not returned</h2>
+<p style="margin:0 0 16px">Megan returned her KOOS form but not the Marx activity form. A friendly reminder usually does it.</p>
+<button class="btn" type="button">Send Megan a reminder</button></div></li>
+<li><div class="card"><p class="when">Scans</p><h2>Images on file</h2>
+<div class="scan"><span><strong>MRI, right knee.</strong> 30 Jan 2023. ACL torn, medial meniscus torn.</span><button class="ghost" type="button">View</button></div>
+<div class="scan"><span><strong>X-ray, right knee.</strong> 22 Apr 2023. After surgery.</span><button class="ghost" type="button">View</button></div>
+<div class="scan"><span><strong>MRI, right knee.</strong> 3 Jun 2025. Graft intact.</span><button class="ghost" type="button">View</button></div></div></li>
+<li><div class="card" style="background:#F3E3D3;box-shadow:none"><p class="when">April 2028</p><h2>Next: 5-year check-in</h2><p style="margin:0">KOOS and Marx forms will be sent to Megan automatically.</p></div></li>
+</ol>
+</div>
+</div>
+</body>
+</html>

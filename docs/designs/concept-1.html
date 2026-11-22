@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept 1: Clear Ward</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F9F8}
+.A{font-family:Inter,system-ui,sans-serif;color:#12302B;background:#F6F9F8;font-size:17px;line-height:1.6}
+.A a{color:#0F6E66}.A a:hover{color:#0A4F49}
+.A .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.A .mock{background:#12302B;color:#FFFFFF;font-size:14px;text-align:center;padding:6px 16px}
+.A header{background:#FFFFFF;border-bottom:1px solid #D3E2DE}
+.A .bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 32px;min-height:72px}
+.A .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;text-decoration:none;color:#12302B}
+.A nav ul{display:flex;flex-wrap:wrap;gap:4px;list-style:none;margin:0;padding:0}
+.A nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:8px;text-decoration:none;color:#12302B;font-weight:500;font-size:16px}
+.A nav a[aria-current]{background:#E2F0EC;color:#0A4F49}
+.A nav .try{background:#0F6E66;color:#FFFFFF}
+.A .hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:center;padding:88px 0 72px}
+.A h1{font-size:52px;line-height:1.1;letter-spacing:-0.02em;margin:0 0 20px}
+.A .lead{font-size:20px;color:#3E5752;margin:0 0 32px;max-width:34em}
+.A .btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:10px;background:#0F6E66;color:#FFFFFF;font-weight:600;text-decoration:none}
+.A .btn:hover{background:#0A4F49;color:#FFFFFF}
+.A .card{background:#FFFFFF;border:1px solid #D3E2DE;border-radius:16px;padding:28px}
+.A .row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid #E6EFEC;font-size:16px}
+.A .tag{display:inline-block;font-size:14px;font-weight:600;padding:2px 10px;border-radius:99px}
+.A .ok{background:#E2F0EC;color:#0A4F49}.A .due{background:#FFF1D6;color:#7A4A00}
+.A h2{font-size:32px;line-height:1.2;margin:0 0 12px;letter-spacing:-0.01em}
+.A h3{font-size:20px;margin:16px 0 8px}
+.A section{padding:64px 0;border-top:1px solid #D3E2DE}
+.A .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.A .icon{width:44px;height:44px;border-radius:12px;background:#E2F0EC;display:flex;align-items:center;justify-content:center}
+.A p{margin:0 0 12px}
+.A .muted{color:#4A625D}
+.A ol.time{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.A ol.time li{background:#FFFFFF;border:1px solid #D3E2DE;border-radius:12px;padding:16px}
+.A ol.time b{display:block;font-size:20px}
+.A footer{background:#12302B;color:#D8E6E2;padding:40px 0;font-size:15px}
+.A footer a{color:#FFFFFF}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F9F8}
+.B{font-family:Inter,system-ui,sans-serif;color:#12302B;background:#F6F9F8;font-size:16px;line-height:1.55}
+.B a{color:#0F6E66}.B a:hover{color:#0A4F49}
+.B .wrap{max-width:1360px;margin:0 auto;padding:0 24px}
+.B .mock{background:#12302B;color:#FFFFFF;font-size:14px;text-align:center;padding:6px 16px;margin:0}
+.B header{background:#FFFFFF;border-bottom:1px solid #D3E2DE}
+.B .bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 32px;min-height:72px}
+.B .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;text-decoration:none;color:#12302B}
+.B nav ul{display:flex;flex-wrap:wrap;gap:4px;list-style:none;margin:0;padding:0}
+.B nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:8px;text-decoration:none;color:#12302B;font-weight:500}
+.B nav a[aria-current]{background:#0F6E66;color:#FFFFFF}
+.B .roles{display:flex;flex-wrap:wrap;gap:8px;padding:20px 0}
+.B .roles a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid #D3E2DE;border-radius:99px;background:#FFFFFF;text-decoration:none;color:#12302B;font-weight:500}
+.B .roles a[aria-current]{border-color:#0F6E66;background:#E2F0EC;color:#0A4F49;font-weight:600}
+.B .layout{display:flex;flex-wrap:wrap;gap:24px;padding-bottom:48px;align-items:flex-start}
+.B aside{flex:1 1 300px;max-width:100%}
+.B .main{flex:999 1 640px;min-width:0;display:grid;gap:24px}
+.B .card{background:#FFFFFF;border:1px solid #D3E2DE;border-radius:16px;padding:24px}
+.B h1{font-size:28px;margin:0 0 4px;line-height:1.2}
+.B h2{font-size:18px;margin:0 0 12px}
+.B dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:16px 0 0}
+.B dt{color:#4A625D}.B dd{margin:0;font-weight:500}
+.B .tag{display:inline-block;font-size:14px;font-weight:600;padding:2px 10px;border-radius:99px}
+.B .ok{background:#E2F0EC;color:#0A4F49}.B .due{background:#FFF1D6;color:#7A4A00}
+.B .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px}
+.B .main>*,.B .two>*{min-width:0}
+@media (max-width:600px){.B .card{padding:18px}}
+.B .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:10px;background:#0F6E66;color:#FFFFFF;font-weight:600;border:0;font:inherit;font-weight:600;cursor:pointer}
+.B .ghost{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:10px;border:1px solid #D3E2DE;background:#FFFFFF;color:#0F6E66;font:inherit;font-weight:600;cursor:pointer}
+.B .scroll{overflow-x:auto}
+.B table{width:100%;border-collapse:collapse;font-size:15px}
+.B th,.B td{text-align:left;padding:10px 12px;border-bottom:1px solid #E6EFEC;white-space:nowrap}
+.B th{color:#4A625D;font-weight:600}
+.B td.num{font-variant-numeric:tabular-nums}
+.B .scan{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-top:1px solid #E6EFEC}
+.B .muted{color:#4A625D}
+.B .legend{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;color:#4A625D;margin-top:8px}
+.B .sw{display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
+</style>
+</head>
+<body>
+<p style="margin:0;padding:10px 24px;background:#555;color:#fff;font:600 15px/1.4 system-ui,sans-serif">Concept 1: Clear Ward. Screen A, home page.</p>
+<div class="A" id="home">
+<p class="mock" style="margin:0">Mock-up. Not real patient data.</p>
+<header><div class="wrap bar">
+<a class="brand" href="#home"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#0F6E66"></rect><path d="M10 7v8c0 3 2 5 6 5s6 2 6 5" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round"></path></svg>OMKH Ligament Registry</a>
+<nav aria-label="Main"><ul>
+<li><a href="#home" aria-current="page">Home</a></li><li><a href="#patients">Patients</a></li><li><a href="#clinicians">Clinicians</a></li><li><a href="#admin">Administrators</a></li><li><a href="#security">Security</a></li><li><a class="try" href="#try">Try it out</a></li>
+</ul></nav>
+</div></header>
+<main>
+<div class="wrap hero">
+<div>
+<p class="tag ok" style="margin:0 0 16px">UK knee ligament registry, working name</p>
+<h1>A clear record of every knee ligament repair.</h1>
+<p class="lead">Surgeons, patients and clinic teams add to one record. Outcome scores follow each knee for ten years after surgery.</p>
+<a class="btn" href="#try">Try the demo</a>
+<p style="margin-top:16px;font-size:16px"><a href="#security">Read how records are kept safe</a></p>
+</div>
+<div class="card" aria-label="Example record summary">
+<p style="font-weight:600;margin:0 0 4px">Example record</p>
+<p class="muted" style="font-size:15px">Megan Lloyd, right knee. Made-up patient.</p>
+<div class="row"><span>ACL reconstruction</span><span>22 Apr 2023</span></div>
+<div class="row"><span>Operation note</span><span class="tag ok">Signed</span></div>
+<div class="row"><span>KOOS at 2 years</span><span class="tag ok">Done</span></div>
+<div class="row"><span>Marx score at 2 years</span><span class="tag due">Missing</span></div>
+<div class="row"><span>Next scores</span><span>April 2028</span></div>
+</div>
+</div>
+
+<section id="patients"><div class="wrap grid">
+<div><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F6E66" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1-4 4-6 8-6s7 2 8 6"></path></svg></div>
+<h3>For patients</h3><p class="muted">See your scans, letters and operation notes in one place. We remind you when a score is due. You choose who can see your record.</p><a href="#patients">Patient guide</a></div>
+<div id="clinicians"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F6E66" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"></path><path d="M8 15l3-4 3 2 3-5"></path></svg></div>
+<h3>For clinicians</h3><p class="muted">The whole knee history on one screen. Compare your results with the national picture. Fill a short form at the end of each case.</p><a href="#clinicians">Clinician guide</a></div>
+<div id="admin"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F6E66" stroke-width="2" aria-hidden="true"><path d="M5 4h14v17H5z"></path><path d="M9 9h6M9 13h6M9 17h3"></path></svg></div>
+<h3>For clinic teams</h3><p class="muted">Register patients with the keyboard. See missing consent and overdue scores at a glance. Errors say what to fix.</p><a href="#admin">Admin guide</a></div>
+</div></section>
+
+<section><div class="wrap">
+<h2>Scores at set points after surgery</h2>
+<p class="muted" style="max-width:40em">Patients fill in KOOS and the Marx activity scale. The main outcome we track is whether a knee needs revision surgery.</p>
+<ol class="time">
+<li><b>Before surgery</b><span class="muted">Baseline</span></li>
+<li><b>1 year</b><span class="muted">KOOS and Marx</span></li>
+<li><b>2 years</b><span class="muted">KOOS and Marx</span></li>
+<li><b>5 years</b><span class="muted">KOOS and Marx</span></li>
+<li><b>10 years</b><span class="muted">KOOS and Marx</span></li>
+</ol>
+</div></section>
+
+<section id="security"><div class="wrap grid" style="align-items:start">
+<div><h2>Your record, locked on your device</h2></div>
+<div><p>The plan is for each record to sit in its own encrypted vault, based on the sgit design. Data is encrypted on the device with AES-256-GCM before it is uploaded. The server never sees the contents, file names or keys.</p>
+<p class="muted">Key recovery for a clinical system is still an open question. This mock-up has no real encryption.</p></div>
+</div></section>
+
+<section id="try" style="background:#E2F0EC"><div class="wrap" style="text-align:center">
+<h2>See it from each side</h2>
+<p class="muted">Open the demo as a patient, a clinician or a member of the clinic team. All data is made up.</p>
+<a class="btn" href="#try" style="margin-top:12px">Try the demo</a>
+</div></section>
+</main>
+<footer><div class="wrap" style="display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between">
+<span>OMKH Ligament Registry. Working name.</span><span>Mock-up. Not real patient data.</span><a href="#security">Security</a>
+</div></footer>
+</div>
+<p style="margin:0;padding:10px 24px;background:#555;color:#fff;font:600 15px/1.4 system-ui,sans-serif">Concept 1: Clear Ward. Screen B, Try it out, clinician view.</p>
+<div class="B" id="try">
+<p class="mock">Mock-up. Not real patient data.</p>
+<header><div class="wrap bar">
+<a class="brand" href="#home"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#0F6E66"></rect><path d="M10 7v8c0 3 2 5 6 5s6 2 6 5" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round"></path></svg>OMKH Ligament Registry</a>
+<nav aria-label="Main"><ul>
+<li><a href="#home">Home</a></li><li><a href="#patients">Patients</a></li><li><a href="#clinicians">Clinicians</a></li><li><a href="#admin">Administrators</a></li><li><a href="#security">Security</a></li><li><a href="#try" aria-current="page">Try it out</a></li>
+</ul></nav>
+</div></header>
+<div class="wrap">
+<nav class="roles" aria-label="Demo role"><a href="#try">Patient portal</a><a href="#try" aria-current="page">Clinician workspace</a><a href="#try">Admin dashboard</a></nav>
+<div class="layout">
+<aside class="card">
+<h1>Megan Lloyd</h1>
+<p class="muted" style="margin:0">Right knee. Primary ACL reconstruction.</p>
+<dl>
+<dt>Born</dt><dd>14 Mar 2001 (25)</dd>
+<dt>Sex</dt><dd>Female</dd>
+<dt>NHS no.</dt><dd>999 042 1187</dd>
+<dt>Consultant</dt><dd>Ms Rachel Bennett</dd>
+<dt>Consent</dt><dd><span class="tag ok">Given 2 Mar 2023</span></dd>
+<dt>Revision</dt><dd>None recorded</dd>
+</dl>
+<div style="margin-top:20px;padding:16px;border-radius:12px;background:#FFF1D6;color:#5C3800">
+<strong>2-year Marx score missing.</strong>
+<p style="margin:4px 0 12px">KOOS was returned on 28 Apr 2025. The Marx form was not.</p>
+<button class="btn" type="button">Request Marx score</button>
+</div>
+<p class="muted" style="margin:16px 0 0;font-size:15px">Next scores due April 2028 (5 years).</p>
+</aside>
+<div class="main">
+<div class="two">
+<section class="card"><h2>Injury</h2>
+<dl style="margin:0"><dt>Date</dt><dd>21 Jan 2023</dd><dt>How</dt><dd>Netball. Landed from a jump, no contact.</dd><dt>Findings</dt><dd>Complete ACL tear. Medial meniscus tear, posterior horn.</dd><dt>Marx before injury</dt><dd>16 of 16</dd></dl></section>
+<section class="card"><h2>Surgery</h2>
+<dl style="margin:0"><dt>Date</dt><dd>22 Apr 2023</dd><dt>Graft</dt><dd>Hamstring autograft, 4-strand, 8.5 mm</dd><dt>Fixation</dt><dd>Femur: suspensory button. Tibia: interference screw.</dd><dt>Meniscus</dt><dd>Medial repair, all-inside</dd><dt>Op note</dt><dd><span class="tag ok">Signed</span></dd></dl></section>
+</div>
+<section class="card"><h2>Scores over time</h2>
+<div class="two">
+<figure style="margin:0"><svg viewBox="0 0 560 230" width="100%" role="img" aria-label="KOOS Sport and Quality of life rose from 35 and 31 before surgery to 85 and 75 at two years">
+<g stroke="#E6EFEC"><line x1="50" y1="20" x2="530" y2="20"></line><line x1="50" y1="105" x2="530" y2="105"></line><line x1="50" y1="190" x2="530" y2="190"></line></g>
+<g fill="#4A625D" font-size="13" font-family="Inter,sans-serif"><text x="40" y="24" text-anchor="end">100</text><text x="40" y="109" text-anchor="end">50</text><text x="40" y="194" text-anchor="end">0</text><text x="70" y="216" text-anchor="middle">Pre-op</text><text x="290" y="216" text-anchor="middle">1 year</text><text x="510" y="216" text-anchor="middle">2 years</text></g>
+<polyline points="70,130.5 290,71 510,45.5" fill="none" stroke="#0F6E66" stroke-width="3"></polyline>
+<polyline points="70,137.3 290,84.6 510,62.5" fill="none" stroke="#B26A00" stroke-width="3" stroke-dasharray="7 5"></polyline>
+<g fill="#0F6E66"><circle cx="70" cy="130.5" r="5"></circle><circle cx="290" cy="71" r="5"></circle><circle cx="510" cy="45.5" r="5"></circle></g>
+<g fill="#B26A00"><circle cx="70" cy="137.3" r="5"></circle><circle cx="290" cy="84.6" r="5"></circle><circle cx="510" cy="62.5" r="5"></circle></g>
+</svg>
+<figcaption class="legend"><span><i class="sw" style="background:#0F6E66"></i>KOOS Sport</span><span><i class="sw" style="background:#B26A00"></i>KOOS Quality of life</span></figcaption></figure>
+<figure style="margin:0"><svg viewBox="0 0 560 230" width="100%" role="img" aria-label="Marx activity: 16 before injury, 2 before surgery, 11 at one year, missing at two years">
+<g stroke="#E6EFEC"><line x1="50" y1="20" x2="530" y2="20"></line><line x1="50" y1="190" x2="530" y2="190"></line></g>
+<g fill="#4A625D" font-size="13" font-family="Inter,sans-serif"><text x="40" y="24" text-anchor="end">16</text><text x="40" y="194" text-anchor="end">0</text><text x="110" y="216" text-anchor="middle">Pre-injury</text><text x="230" y="216" text-anchor="middle">Pre-op</text><text x="350" y="216" text-anchor="middle">1 year</text><text x="470" y="216" text-anchor="middle">2 years</text></g>
+<g fill="#0F6E66"><rect x="85" y="20" width="50" height="170" rx="4"></rect><rect x="205" y="169" width="50" height="21" rx="4"></rect><rect x="325" y="73" width="50" height="117" rx="4"></rect></g>
+<rect x="446" y="100" width="48" height="89" rx="4" fill="none" stroke="#B26A00" stroke-width="2" stroke-dasharray="6 4"></rect>
+<text x="470" y="150" text-anchor="middle" fill="#7A4A00" font-size="13" font-weight="600" font-family="Inter,sans-serif">Missing</text>
+</svg>
+<figcaption class="legend"><span><i class="sw" style="background:#0F6E66"></i>Marx activity score, 0 to 16</span></figcaption></figure>
+</div>
+<div class="scroll" style="margin-top:16px"><table>
+<thead><tr><th>Time point</th><th>Date</th><th>Pain</th><th>Symptoms</th><th>Daily living</th><th>Sport</th><th>Quality of life</th><th>Marx</th></tr></thead>
+<tbody>
+<tr><td>Before surgery</td><td>2 Mar 2023</td><td class="num">64</td><td class="num">57</td><td class="num">78</td><td class="num">35</td><td class="num">31</td><td class="num">2</td></tr>
+<tr><td>1 year</td><td>25 Apr 2024</td><td class="num">86</td><td class="num">79</td><td class="num">94</td><td class="num">70</td><td class="num">62</td><td class="num">11</td></tr>
+<tr><td>2 years</td><td>28 Apr 2025</td><td class="num">92</td><td class="num">86</td><td class="num">97</td><td class="num">85</td><td class="num">75</td><td><span class="tag due">Missing</span></td></tr>
+<tr><td>5 years</td><td>Due Apr 2028</td><td colspan="6" class="muted">Not yet due</td></tr>
+</tbody></table></div>
+</section>
+<section class="card"><h2>Scans</h2>
+<div class="scan"><div><strong>MRI, right knee</strong><br><span class="muted">30 Jan 2023. Complete ACL tear. Medial meniscus tear.</span></div><button class="ghost" type="button">Open scan</button></div>
+<div class="scan"><div><strong>X-ray, right knee</strong><br><span class="muted">22 Apr 2023. After surgery. Tunnels and fixation in place.</span></div><button class="ghost" type="button">Open scan</button></div>
+<div class="scan"><div><strong>MRI, right knee</strong><br><span class="muted">3 Jun 2025. Graft intact.</span></div><button class="ghost" type="button">Open scan</button></div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

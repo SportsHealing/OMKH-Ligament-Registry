@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept 4: Match Fit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+.A{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#0B1533;background:#FFFFFF;font-size:17px;line-height:1.55}
+.A a{color:#0B1533;text-decoration-thickness:2px}.A a:hover{color:#2A3B73}
+.A .disp{font-family:"Barlow Condensed",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.01em}
+.A .wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.A .top{background:#0B1533;color:#FFFFFF}
+.A .bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px;min-height:68px}
+.A .brand{display:flex;align-items:center;gap:10px;color:#FFFFFF;text-decoration:none;font-size:24px;font-weight:800}
+.A nav ul{display:flex;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.A nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;color:#FFFFFF;text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;letter-spacing:.04em}
+.A nav a[aria-current]{box-shadow:inset 0 -4px 0 #D7FF3F}
+.A nav .try{background:#D7FF3F;color:#0B1533}
+.A .mock{margin-left:auto;font-size:14px;color:#D7FF3F}
+.A .hero{background:#0B1533;color:#FFFFFF;position:relative;overflow:hidden;padding:80px 0 120px}
+.A .band{position:absolute;right:-80px;top:0;bottom:0;width:46%;background:#D7FF3F;clip-path:polygon(28% 0,100% 0,100% 100%,0 100%)}
+.A .hero .wrap{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;align-items:center}
+.A h1{font-size:96px;line-height:.92;margin:0 0 24px;font-weight:800}
+.A .lead{font-size:20px;color:#D5DBEA;max-width:30em;margin:0 0 32px}
+.A .btn{display:inline-flex;align-items:center;min-height:56px;padding:0 30px;background:#D7FF3F;color:#0B1533;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;text-decoration:none;letter-spacing:.04em}
+.A .btn:hover{background:#FFFFFF;color:#0B1533}
+.A .board{background:#0B1533;color:#FFFFFF;border:3px solid #0B1533;justify-self:end;width:100%;max-width:420px}
+.A .board div{display:flex;justify-content:space-between;align-items:baseline;padding:14px 20px;border-bottom:1px solid #2A3B73}
+.A .board b{font-family:"Barlow Condensed",sans-serif;font-size:44px;line-height:1;color:#D7FF3F}
+.A section{padding:72px 0}
+.A h2{font-size:56px;line-height:1;margin:0 0 16px;font-weight:800}
+.A .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:0;border-top:4px solid #0B1533}
+.A .tile{padding:28px 28px 32px 0;border-right:1px solid #D5DBEA;margin-right:28px}
+.A .num{font-family:"Barlow Condensed",sans-serif;font-size:20px;font-weight:700;color:#46506A}
+.A .tile h3{font-size:36px;margin:4px 0 8px;font-weight:800;line-height:1}
+.A .tile p{color:#46506A;margin:0 0 12px}
+.A .run{background:#F2F4F8}
+.A .laps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:4px;margin-top:32px}
+.A .laps div{background:#FFFFFF;padding:20px;border-top:6px solid #0B1533}
+.A .laps div.now{border-top-color:#8FB000}
+.A .laps b{display:block;font-family:"Barlow Condensed",sans-serif;font-size:34px;line-height:1;text-transform:uppercase}
+.A .laps span{color:#46506A}
+.A .sec{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
+@media (max-width:900px){.A .band{display:none}.A h1{font-size:60px}}
+.A footer{background:#0B1533;color:#D5DBEA;padding:32px 0;font-size:15px}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F2F4F8}
+.B{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#0B1533;background:#F2F4F8;font-size:16px;line-height:1.5}
+.B a{color:#0B1533}
+.B .disp{font-family:"Barlow Condensed",system-ui,sans-serif;text-transform:uppercase;letter-spacing:.01em}
+.B .wrap{max-width:1360px;margin:0 auto;padding:0 24px}
+.B .top{background:#0B1533;color:#FFFFFF}
+.B .bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px;min-height:68px}
+.B .brand{display:flex;align-items:center;gap:10px;color:#FFFFFF;text-decoration:none;font-size:24px;font-weight:800}
+.B nav ul{display:flex;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.B nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;color:#FFFFFF;text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;letter-spacing:.04em}
+.B nav a[aria-current]{background:#D7FF3F;color:#0B1533}
+.B .mock{margin-left:auto;font-size:14px;color:#D7FF3F}
+.B .roles{display:flex;flex-wrap:wrap;gap:4px;padding:20px 0}
+.B .roles a{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;background:#FFFFFF;color:#0B1533;text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:19px;text-transform:uppercase}
+.B .roles a[aria-current]{background:#0B1533;color:#FFFFFF}
+.B .head{background:#0B1533;color:#FFFFFF;padding:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:end}
+.B h1{font-size:64px;line-height:.95;margin:0;font-weight:800}
+.B .meta{display:flex;flex-wrap:wrap;gap:6px 18px;color:#D5DBEA;margin-top:10px}
+.B .sb{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+.B .sb div{background:#16224A;padding:12px;text-align:center}
+.B .sb b{display:block;font-family:"Barlow Condensed",sans-serif;font-size:48px;line-height:1;color:#D7FF3F}
+.B .sb span{font-size:14px;color:#D5DBEA}
+.B .sb .miss b{color:#FFB38A;font-size:28px;line-height:48px}
+.B .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr));gap:4px;margin-top:4px}
+.B .panel{background:#FFFFFF;padding:24px;min-width:0}
+.B .wide{grid-column:1/-1}
+.B h2{font-size:30px;margin:0 0 14px;font-weight:800;line-height:1}
+.B dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 16px;margin:0}
+.B dt{color:#46506A}.B dd{margin:0;font-weight:600}
+.B .flag{display:inline-block;font-weight:700;font-size:14px;padding:2px 10px;text-transform:uppercase;letter-spacing:.04em}
+.B .y{background:#D7FF3F;color:#0B1533}.B .r{background:#FFE4D6;color:#9A2F0B}
+.B .btn{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;background:#D7FF3F;color:#0B1533;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:20px;text-transform:uppercase;border:0;cursor:pointer}
+.B .ghost{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;background:#FFFFFF;border:2px solid #0B1533;color:#0B1533;font-weight:700;cursor:pointer;font:inherit;font-weight:700}
+.B .meter{display:grid;grid-template-columns:140px 1fr 48px;gap:12px;align-items:center;margin:10px 0}
+.B .track{height:14px;background:#E4E8F0;position:relative}
+.B .fill{position:absolute;left:0;top:0;bottom:0;background:#0B1533}
+.B .pre{position:absolute;top:-4px;bottom:-4px;width:3px;background:#C2410C}
+.B .key{display:flex;flex-wrap:wrap;gap:16px;color:#46506A;font-size:14px;margin-top:12px}
+.B .scan{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center;padding:14px 0;border-top:1px solid #E4E8F0}
+</style>
+</head>
+<body>
+<p style="margin:0;padding:10px 24px;background:#555;color:#fff;font:600 15px/1.4 system-ui,sans-serif">Concept 4: Match Fit. Screen A, home page.</p>
+<div class="A" id="home">
+<div class="top"><div class="wrap bar">
+<a class="brand disp" href="#home"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M4 26L14 4h6L10 26z" fill="#D7FF3F"></path><path d="M16 26L22 12h5l-6 14z" fill="#FFFFFF"></path></svg>OMKH Ligament Registry</a>
+<nav aria-label="Main"><ul>
+<li><a href="#home" aria-current="page">Home</a></li><li><a href="#patients">Patients</a></li><li><a href="#clinicians">Clinicians</a></li><li><a href="#admin">Administrators</a></li><li><a href="#security">Security</a></li><li><a class="try" href="#try">Try it out</a></li>
+</ul></nav>
+<span class="mock">Mock-up. Not real patient data.</span>
+</div></div>
+<main>
+<div class="hero"><div class="band" aria-hidden="true"></div><div class="wrap">
+<div>
+<h1 class="disp">Back in the game. On the record.</h1>
+<p class="lead">A UK registry for knee ligament surgery. It tracks how each knee does for ten years, so the next player gets the best repair.</p>
+<a class="btn" href="#try">Try it out</a>
+</div>
+<div class="board" aria-label="Example scoreboard, made-up patient">
+<div><span>KOOS Sport, before surgery</span><b>35</b></div>
+<div><span>At 1 year</span><b>70</b></div>
+<div><span>At 2 years</span><b>85</b></div>
+<div style="border:0"><span>Revision surgery</span><b>0</b></div>
+</div>
+</div></div>
+
+<section><div class="wrap">
+<div class="tiles">
+<div class="tile" id="patients"><span class="num">01</span><h3 class="disp">Patients</h3><p>Your scans, letters and scores in one place. A nudge when the next score is due. You pick who sees it.</p><a href="#patients">For patients</a></div>
+<div class="tile" id="clinicians"><span class="num">02</span><h3 class="disp">Clinicians</h3><p>Full knee history at a glance. Your outcomes next to the national picture.</p><a href="#clinicians">For clinicians</a></div>
+<div class="tile" id="admin" style="border-right:0"><span class="num">03</span><h3 class="disp">Clinic teams</h3><p>Fast, keyboard-first registration. Missing consent and overdue scores flagged for you.</p><a href="#admin">For admin staff</a></div>
+</div>
+</div></section>
+
+<section class="run"><div class="wrap">
+<h2 class="disp">The ten-year season</h2>
+<p style="color:#46506A;max-width:36em;margin:0">Patients score their knee with KOOS and the Marx activity scale. Revision surgery is the result we watch most closely.</p>
+<div class="laps">
+<div><b>Pre-op</b><span>Baseline</span></div>
+<div><b>Year 1</b><span>KOOS and Marx</span></div>
+<div class="now"><b>Year 2</b><span>KOOS and Marx</span></div>
+<div><b>Year 5</b><span>KOOS and Marx</span></div>
+<div><b>Year 10</b><span>Final scores</span></div>
+</div>
+</div></section>
+
+<section id="security"><div class="wrap sec">
+<h2 class="disp">Locked before it leaves your phone</h2>
+<div><p style="margin:0 0 12px">Each record is planned as its own vault, using the sgit design. Data is encrypted on the device with AES-256-GCM. The server stores it but cannot read it.</p>
+<p style="margin:0;color:#46506A">This mock-up has no real encryption. Key recovery still needs a clear answer.</p></div>
+</div></section>
+</main>
+<footer><div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px">
+<span>OMKH Ligament Registry. Working name.</span><span>Mock-up. Not real patient data.</span>
+</div></footer>
+</div>
+<p style="margin:0;padding:10px 24px;background:#555;color:#fff;font:600 15px/1.4 system-ui,sans-serif">Concept 4: Match Fit. Screen B, Try it out, clinician view.</p>
+<div class="B" id="try">
+<div class="top"><div class="wrap bar">
+<a class="brand disp" href="#home"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M4 26L14 4h6L10 26z" fill="#D7FF3F"></path><path d="M16 26L22 12h5l-6 14z" fill="#FFFFFF"></path></svg>OMKH Ligament Registry</a>
+<nav aria-label="Main"><ul>
+<li><a href="#home">Home</a></li><li><a href="#patients">Patients</a></li><li><a href="#clinicians">Clinicians</a></li><li><a href="#admin">Administrators</a></li><li><a href="#security">Security</a></li><li><a href="#try" aria-current="page">Try it out</a></li>
+</ul></nav>
+<span class="mock">Mock-up. Not real patient data.</span>
+</div></div>
+<div class="wrap" style="padding-bottom:48px">
+<nav class="roles" aria-label="Demo role"><a href="#try">Patient</a><a href="#try" aria-current="page">Clinician</a><a href="#try">Admin</a></nav>
+<div class="head">
+<div><span class="flag y">Right knee. Primary ACLR</span><h1 class="disp" style="margin-top:12px">Megan Lloyd</h1>
+<div class="meta"><span>Born 14 Mar 2001 (25)</span><span>Female</span><span>NHS 999 042 1187</span><span>Netball, club level</span></div></div>
+<div class="sb" aria-label="KOOS Sport scoreboard">
+<div><b>35</b><span>Pre-op</span></div><div><b>70</b><span>Year 1</span></div><div><b>85</b><span>Year 2</span></div><div class="miss"><b>Due</b><span>Year 5, Apr 2028</span></div>
+</div>
+</div>
+<div class="grid">
+<section class="panel"><h2 class="disp">Injury</h2><dl>
+<dt>Date</dt><dd>21 Jan 2023</dd><dt>How</dt><dd>Non-contact landing, netball</dd><dt>ACL</dt><dd>Complete tear</dd><dt>Meniscus</dt><dd>Medial tear, posterior horn</dd><dt>Marx before</dt><dd>16 of 16</dd></dl></section>
+<section class="panel"><h2 class="disp">Surgery</h2><dl>
+<dt>Date</dt><dd>22 Apr 2023</dd><dt>Surgeon</dt><dd>Ms Rachel Bennett</dd><dt>Graft</dt><dd>Hamstring, 4-strand, 8.5 mm</dd><dt>Fixation</dt><dd>Femoral button, tibial screw</dd><dt>Meniscus</dt><dd>Medial repair, all-inside</dd><dt>Op note</dt><dd><span class="flag y">Signed</span></dd></dl></section>
+<section class="panel"><h2 class="disp">Missing data</h2>
+<p style="margin:0 0 8px"><span class="flag r">Missing</span></p>
+<p style="margin:0 0 16px">2-year Marx activity score. KOOS for the same visit came back on 28 Apr 2025.</p>
+<button class="btn" type="button">Chase Marx score</button>
+<p style="margin:16px 0 0;color:#46506A">Consent given 2 Mar 2023. No revision recorded.</p></section>
+<section class="panel wide"><h2 class="disp">Scores at year 2 against before surgery</h2>
+<div class="meter"><span>KOOS Pain</span><div class="track"><div class="fill" style="width:92%"></div><div class="pre" style="left:64%"></div></div><b>92</b></div>
+<div class="meter"><span>KOOS Symptoms</span><div class="track"><div class="fill" style="width:86%"></div><div class="pre" style="left:57%"></div></div><b>86</b></div>
+<div class="meter"><span>KOOS Daily living</span><div class="track"><div class="fill" style="width:97%"></div><div class="pre" style="left:78%"></div></div><b>97</b></div>
+<div class="meter"><span>KOOS Sport</span><div class="track"><div class="fill" style="width:85%"></div><div class="pre" style="left:35%"></div></div><b>85</b></div>
+<div class="meter"><span>KOOS Quality of life</span><div class="track"><div class="fill" style="width:75%"></div><div class="pre" style="left:31%"></div></div><b>75</b></div>
+<div class="meter"><span>Marx activity</span><div class="track"><div class="fill" style="width:68.75%;background:#8A93AB"></div><div class="pre" style="left:12.5%"></div></div><b>11</b></div>
+<div class="key"><span>Bar: latest score out of 100 (Marx out of 16, shown at year 1)</span><span><i style="display:inline-block;width:3px;height:14px;background:#C2410C;vertical-align:middle;margin-right:6px"></i>Before surgery</span></div>
+</section>
+<section class="panel wide"><h2 class="disp">Scans</h2>
+<div class="scan"><span><strong>MRI right knee</strong>, 30 Jan 2023. Complete ACL tear, medial meniscus tear.</span><button class="ghost" type="button">Open</button></div>
+<div class="scan"><span><strong>X-ray right knee</strong>, 22 Apr 2023. After surgery.</span><button class="ghost" type="button">Open</button></div>
+<div class="scan"><span><strong>MRI right knee</strong>, 3 Jun 2025. Graft intact.</span><button class="ghost" type="button">Open</button></div>
+</section>
+</div>
+</div>
+</div>
+</body>
+</html>
