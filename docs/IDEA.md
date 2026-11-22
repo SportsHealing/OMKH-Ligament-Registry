@@ -1,6 +1,6 @@
 # OMKH Ligament Registry: the idea
 
-Working name. Mock-up only. No real patient data anywhere.
+Proposed redraft of the UK National Ligament Registry. Working name. Mock-up only. No real patient data anywhere.
 
 ## The request
 
@@ -85,6 +85,6 @@ Every button in the demo leads somewhere. Data is made up.
 
 ## Open points
 
-- A UK National Ligament Registry already exists, run by BASK since 2013. We need to know how this project relates to it.
+- Resolved 2026-11-22: the UK National Ligament Registry (set up by BASK in 2013) is not active. It is being revised, and Mr Gupte is officially leading the revision. This site is a proposed redraft for that work.
 - Final name and branding.
 - Who owns the data and who funds it.

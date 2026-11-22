@@ -34,3 +34,4 @@ Phase 1 built and on main. Waiting for GitHub Pages to be switched on, then Mr G
 | 2026-11-22 | Repo set up. Planning docs, ABP v1 and agent brief added. |
 | 2026-11-22 | ABP v2 after review. 5 design concepts. Synthetic user review. |
 | 2026-11-22 | Clickable mock-up built and pushed to main. |
+| 2026-11-22 | Site and docs reframed as a proposed redraft of the UK National Ligament Registry. |

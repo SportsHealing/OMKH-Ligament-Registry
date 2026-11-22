@@ -70,7 +70,7 @@ Test: a control bounds a grant only if enforced by something the grant does not 
 | R1a | Fake data must look fake at a glance. Use obviously invented names ("Test Patient A"), invented hospitals, dates in a fixed demo year. | expectation | |
 | R1b | No real surgeons, trusts or hospitals in outcome tables or league charts. Mock stats are labelled "invented". | expectation | Fake comparisons could harm real reputations. |
 | R1c | No clinical advice or treatment claims on the site. | expectation | |
-| R7 | Do not impersonate the NHS, BASK, ACC or any real body. No real logos or NHS blue identity. | expectation | Artifact tool refuses impersonation (boundary for artifacts only). Pages: expectation. |
+| R7 | Do not impersonate the NHS, BASK, ACC or any real body. No real logos or NHS blue identity. | expectation | Artifact tool refuses impersonation (boundary for artifacts only). Pages: expectation. The site may call itself a proposed redraft of the UK National Ligament Registry (user confirmed 2026-11-22). No BASK logo, no claim of approval. |
 | R8 | Every page shows a clear "Mock-up. Not real patient data." banner. | expectation | Setting with C3. |
 | R8a | Pages carry `noindex` and the repo has a `robots.txt` that disallows all. | expectation | Limits search results being mistaken for a live service. |
 | R12 | Security page says plainly: no real login, no real encryption, no storage. sgit claims match sgit.ai and say "beta". | expectation | |

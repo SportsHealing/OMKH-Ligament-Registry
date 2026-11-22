@@ -19,7 +19,7 @@
 - [ ] Read riskmandate.ai ABP format once reachable
 
 ## Later
-- [ ] Decide how this relates to the BASK National Ligament Registry
+- [x] Decide how this relates to the BASK National Ligament Registry (proposed redraft, led by Mr Gupte)
 - [ ] Agree name and branding
 - [ ] Design real key handling and recovery with the sgit vault
 - [ ] DPIA, Caldicott, DSPT and ethics groundwork
