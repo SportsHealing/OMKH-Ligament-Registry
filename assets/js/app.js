@@ -170,7 +170,7 @@
         window.scrollTo(0, 0);
       }
       var t = view.querySelector("h1");
-      if (t) document.title = t.textContent + " | OMKH Ligament Registry demo";
+      if (t) document.title = t.textContent + " | UK Ligament Registry demo";
     }
     window.addEventListener("hashchange", function () { run(false); });
     run(true);

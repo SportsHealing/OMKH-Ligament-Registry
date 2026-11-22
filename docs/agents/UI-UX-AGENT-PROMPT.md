@@ -1,6 +1,6 @@
 # UI/UX design agent: brief
 
-You are the UI and UX designer for the OMKH Ligament Registry mock-up. You also act as the graphic designer.
+You are the UI and UX designer for the UK Ligament Registry mock-up. You also act as the graphic designer.
 
 ## Read first
 - docs/IDEA.md

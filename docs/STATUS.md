@@ -15,7 +15,7 @@ Phase 1 built and on main. Waiting for GitHub Pages to be switched on, then Mr G
 - 5 synthetic users reviewed the concepts (docs/designs/REVIEWS.md). Concept 1, Clear Ward, ranked first at 7.6.
 - Clickable site built in Concept 1. 11 pages. Patient, clinician and admin demos.
 - Tests: 81 views crawled, 109 buttons clicked, 28 of 28 flows passed, no axe violations (WCAG 2.2 AA).
-- Pushed to main. GitHub Pages must be switched on once in repo Settings (API blocked from the build environment).
+- Pushed to main. GitHub Pages must be switched on once in repo Settings, source GitHub Actions (API blocked from the build environment).
 
 ## Next
 
@@ -25,7 +25,8 @@ Phase 1 built and on main. Waiting for GitHub Pages to be switched on, then Mr G
 
 ## Blockers
 
-- These sites could not be reached from the build environment: aclregistry.nz, riskmandate.ai, sgsend.ai.
+- sgsend.ai still not reachable. aclregistry.nz and riskmandate.ai now open.
+- Pages and safeguards P1 to P7 need the owner (docs/SAFEGUARDS.md).
 
 ## Change log
 
@@ -35,3 +36,4 @@ Phase 1 built and on main. Waiting for GitHub Pages to be switched on, then Mr G
 | 2026-11-22 | ABP v2 after review. 5 design concepts. Synthetic user review. |
 | 2026-11-22 | Clickable mock-up built and pushed to main. |
 | 2026-11-22 | Site and docs reframed as a proposed redraft of the UK National Ligament Registry. |
+| 2026-11-22 | Renamed to UK Ligament Registry. Mr Chinmay Gupte named as clinical lead. NZ facts checked. ABP v2.1. CI checks C1 to C5 and deploy gate added. |

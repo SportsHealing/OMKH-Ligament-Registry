@@ -1,4 +1,4 @@
-# OMKH Ligament Registry (mock-up)
+# UK Ligament Registry (mock-up)
 
 A clickable mock-up of a UK knee ligament registry. Modelled on the New Zealand ACL Registry.
 

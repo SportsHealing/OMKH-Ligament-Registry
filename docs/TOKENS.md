@@ -11,8 +11,10 @@ Sub-agent figures come from the platform's usage report. Conductor figures are e
 | 5 | Synthetic users | 5 personas review concepts | 82k | one agent, 5 roles |
 | 6 | UI/UX agent | Build full clickable site and tests | 278k | **over the 250k per-agent cap** |
 | 7 | Conductor | Coordination, checks, deploy | ~90k | estimate |
+| 8 | Web fetch | NZ and riskmandate retry (WebFetch blocked, used curl) | ~7k | |
+| 9 | Conductor | Rename, safeguards, CI, docs | ~60k | estimate |
 
-**Phase 1 total: about 790k of 1.2M budget.**
+**Phase 1 total: about 860k of 1.2M budget.**
 
 Lesson: the site build should have been split into two agent runs (public pages, then demo app).
 

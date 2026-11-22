@@ -1,0 +1,5 @@
+# ABP P2: changes to CI, agent settings and the ABP need the owner's review
+/.github/        @SportsHealing
+/.claude/        @SportsHealing
+/scripts/        @SportsHealing
+/docs/ABP.md     @SportsHealing

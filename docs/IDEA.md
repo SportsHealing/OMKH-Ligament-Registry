@@ -1,6 +1,6 @@
-# OMKH Ligament Registry: the idea
+# UK Ligament Registry: the idea
 
-Proposed redraft of the UK National Ligament Registry. Working name. Mock-up only. No real patient data anywhere.
+Proposed redraft of the UK National Ligament Registry. Name: UK Ligament Registry. Mock-up only. No real patient data anywhere.
 
 ## The request
 
@@ -11,15 +11,21 @@ Proposed redraft of the UK National Ligament Registry. Working name. Mock-up onl
 
 ## What the NZ registry does (reference model)
 
-The NZ site could not be reached from our build environment. These points come from public knowledge and need checking against the live site.
+Checked against aclregistry.nz on 2026-11-22. Points marked (unchecked) are from public knowledge only.
 
-- Started in 2014. Run by surgeons, funded through the national accident scheme.
-- Records every primary and revision ACL reconstruction.
-- Surgeon fills a short form at surgery: graft type, fixation, meniscus and cartilage findings.
-- Patients fill outcome scores before surgery and at 1, 2, 5 and 10 years.
-- Scores used: KOOS and the Marx activity scale.
-- Main outcome tracked: revision surgery.
-- Publishes annual reports so surgeons can compare results.
+- An initiative of the New Zealand Knee Society, part of the New Zealand Orthopaedic Association.
+- Committed to in October 2013. Pilot with 5 surgeons over 3 months. Nationwide registration from November 2014.
+- Now the national standard for reporting ACL surgery. About 3,000 reconstructions a year.
+- Aims: who is most at risk, which techniques work best, who is at risk of reinjury, what patients can expect.
+- Top menu: About, Patients, Health Professionals, Find a Surgeon, Research & Reports, Contact.
+- Records every primary and revision ACL reconstruction. (unchecked)
+- Surgeon fills a short form at surgery: graft type, fixation, meniscus and cartilage findings. (unchecked)
+- Patients fill outcome scores before surgery and at 1, 2, 5 and 10 years. (unchecked)
+- Scores used: KOOS and the Marx activity scale. (unchecked)
+- Main outcome tracked: revision surgery. (unchecked)
+- Publishes annual reports so surgeons can compare results. (unchecked)
+
+Ideas to borrow for the UK site: a "Find a surgeon" page and a "Research and reports" page.
 
 ## What the UK version adds
 
@@ -86,5 +92,5 @@ Every button in the demo leads somewhere. Data is made up.
 ## Open points
 
 - Resolved 2026-11-22: the UK National Ligament Registry (set up by BASK in 2013) is not active. It is being revised, and Mr Gupte is officially leading the revision. This site is a proposed redraft for that work.
-- Final name and branding.
+- Name agreed 2026-11-22: UK Ligament Registry. Branding still open.
 - Who owns the data and who funds it.

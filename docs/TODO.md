@@ -5,22 +5,25 @@
 - [x] 5 design concepts in Claude Design
 - [x] Synthetic user review of the concepts
 - [x] Build the clickable mock-up site
-- [ ] Switch on GitHub Pages: Settings, Pages, Deploy from branch, main, / (root)
+- [ ] Switch on GitHub Pages: Settings, Pages, Source: GitHub Actions
 
 ## Next
 - [ ] Mr Gupte reviews the 5 concepts (Claude Design canvas) and the live site
 - [ ] Draw patient portal and admin screens for the concepts not chosen, if needed
-- [ ] Decide on ABP proposed boundaries P1 to P7 (need the user)
-- [ ] Add CI checks C1 to C5 from the ABP (needs approval to edit workflows)
+- [ ] Owner switches on P1 to P7 (steps in docs/SAFEGUARDS.md)
+- [ ] Full ABP review (v2.1 to v3), using the riskmandate.ai format
+- [ ] Consider "Find a surgeon" and "Research and reports" pages, as on the NZ site
+- [x] Add CI checks C1 to C5 from the ABP
 - [ ] Mr Gupte picks a design concept
 - [ ] Restyle the site to the chosen concept
 - [ ] Review the ABP again after phase 1
-- [ ] Check the NZ registry site by hand and fix IDEA.md if needed
-- [ ] Read riskmandate.ai ABP format once reachable
+- [x] Check the NZ registry site and fix IDEA.md
+- [x] Read riskmandate.ai ABP format (notes in the ABP review log)
 
 ## Later
 - [x] Decide how this relates to the BASK National Ligament Registry (proposed redraft, led by Mr Gupte)
-- [ ] Agree name and branding
+- [x] Agree name: UK Ligament Registry
+- [ ] Agree branding
 - [ ] Design real key handling and recovery with the sgit vault
 - [ ] DPIA, Caldicott, DSPT and ethics groundwork
 - [ ] Choose PROMs and follow-up schedule with surgeons

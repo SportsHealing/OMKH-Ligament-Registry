@@ -1,6 +1,6 @@
 # Agent Behaviour Policy (ABP)
 
-Version 2. Reviewed 2026-11-22. See the review log at the end.
+Version 2.1. Reviewed 2026-11-22. In use until the next review. See the review log at the end.
 
 Covers the conductor agent and every agent it starts for this project.
 
@@ -70,6 +70,7 @@ Test: a control bounds a grant only if enforced by something the grant does not 
 | R1a | Fake data must look fake at a glance. Use obviously invented names ("Test Patient A"), invented hospitals, dates in a fixed demo year. | expectation | |
 | R1b | No real surgeons, trusts or hospitals in outcome tables or league charts. Mock stats are labelled "invented". | expectation | Fake comparisons could harm real reputations. |
 | R1c | No clinical advice or treatment claims on the site. | expectation | |
+| R1d | The site is named "UK Ligament Registry". It may name Mr Chinmay Gupte, consultant knee surgeon, as clinical lead for the revision of the UK National Ligament Registry. No other real clinician is named. | expectation | User confirmed 2026-11-22. |
 | R7 | Do not impersonate the NHS, BASK, ACC or any real body. No real logos or NHS blue identity. | expectation | Artifact tool refuses impersonation (boundary for artifacts only). Pages: expectation. The site may call itself a proposed redraft of the UK National Ligament Registry (user confirmed 2026-11-22). No BASK logo, no claim of approval. |
 | R8 | Every page shows a clear "Mock-up. Not real patient data." banner. | expectation | Setting with C3. |
 | R8a | Pages carry `noindex` and the repo has a `robots.txt` that disallows all. | expectation | Limits search results being mistaken for a live service. |
@@ -84,7 +85,7 @@ Test: a control bounds a grant only if enforced by something the grant does not 
 | R2 | Push only to the working branch and main. | **unverified**, treat as expectation | v1 said boundary. Not tested. The session git proxy may scope branches, but main is allowed, so it does not bound main. |
 | R3 | No force push. No history rewrite. | expectation | Boundary with P1. |
 | R4 | Never commit secrets, keys or tokens. | expectation | Public repo: GitHub push protection may apply (boundary). Not confirmed. See P3. |
-| R15 | Do not edit `.github/workflows/`, `.claude/` or hooks without user approval. | expectation | Boundary with P2. Without it every CI check below is only a setting. |
+| R15 | Do not edit `.github/workflows/`, `.claude/` or hooks without user approval. | expectation | User approved the first CI workflow on 2026-11-22. Boundary with P4, and with P2 if the pull request option is chosen. |
 | R16 | Commits must not expose the user's email. Use a noreply author. | expectation | Public repo. |
 
 ### 4.3 Agents, network and cost
@@ -151,7 +152,9 @@ These are **settings**: the agent can write them and could also remove them. The
 | C4 | Run pa11y or axe against built pages. | R14 |
 | C5 | Run gitleaks on each push. | R4 |
 
-## 9. Proposed boundaries (need user action)
+## 9. Proposed boundaries (approved 2026-11-22)
+
+C1 to C5 are built: `scripts/checks.sh`, `scripts/a11y.mjs` and `.github/workflows/checks-and-deploy.yml`. Owner steps for P1 to P7 are in docs/SAFEGUARDS.md. Retag rules as each step is confirmed done.
 
 | ID | Proposal | Moves | Effort |
 |----|----------|-------|--------|
@@ -176,3 +179,4 @@ These are **settings**: the agent can write them and could also remove them. The
 | Date | Reviewer | Changes |
 |------|----------|---------|
 | 2026-11-22 | ABP review agent | v1 to v2. Added "none" barrier kind and the enforcer test. Grant now lists Drive, Docs, scheduled tasks, webhooks, remote sessions and messaging. Noted the repo is public. R2 downgraded from boundary to unverified. R10 split: settings.json edits are only a setting (R10a). R11 retagged as boundary for artifacts, with Drive sharing as a new gap (R11a). Added rules on obvious fake data, fake league tables, clinical claims, noindex, inert forms, accessibility, workflow edits, commit email, identity leakage, scheduled tasks. Added cheap CI checks (C1 to C5, honestly tagged as settings) and proposed boundaries P1 to P7. Branch protection on main could not be read (403) and main does not exist yet. |
+| 2026-11-22 | Conductor | v2.1. Added R1d (site name and clinical lead). Built C1 to C5 and CODEOWNERS. P1 to P7 approved by the user; owner steps in SAFEGUARDS.md. Not a full review. Inputs for the next review: riskmandate.ai/abp.html suggests capability ids (verb.object.reach), a door, evidence tier and reversibility per grant row, and a named owner with an expiry date on the acceptance. |
