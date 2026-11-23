@@ -22,3 +22,10 @@ Sub-agent figures come from the platform's usage report. Conductor figures are e
 Lesson: the site build should have been split into two agent runs (public pages, then demo app).
 
 Budget for phase 1: about 1.2M tokens. See ABP section 6.
+
+## Phase 2
+
+Budget: 1M tokens (set by the user, 2026-11-23). Warn at 800k.
+
+| # | Agent | Task | Tokens | Note |
+|---|-------|------|--------|------|
