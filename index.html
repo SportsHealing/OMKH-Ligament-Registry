@@ -28,13 +28,13 @@
 
 <div class="hero">
 <div>
-<p><span class="tag ok">Proposed redraft of the UK National Ligament Registry</span></p>
+<p class="kicker">Proposed redraft of the UK National Ligament Registry</p>
 <h1>A clear record of every knee ligament repair.</h1>
 <p class="lead">Surgeons, patients and clinic teams add to one record. Patients score their knee before surgery and for ten years after. The registry tracks which repairs last.</p>
 <div class="btn-row"><a class="btn" href="try/index.html">Try the demo</a><a href="security.html">What is real in this mock-up</a></div>
 </div>
 <div class="card" aria-labelledby="ex-title">
-<h2 id="ex-title" style="font-size:18px;margin:0 0 4px">Example record</h2>
+<h2 id="ex-title" style="margin:0 0 4px">Example record</h2>
 <p class="muted small">Megan Sample, right knee. Invented patient.</p>
 <div class="row"><span>ACL reconstruction</span><span class="mono">1 Jun 2028</span></div>
 <div class="row"><span>Operation form</span><span class="tag ok">Complete</span></div>
@@ -44,18 +44,19 @@
 </div>
 </div>
 
-<section class="section" aria-labelledby="who">
+<section class="section band" aria-labelledby="who">
 <h2 id="who" class="visually-hidden">Who the registry is for</h2>
-<div class="grid">
-<div class="card"><h3>For patients</h3><p class="muted">Your scans, letters and scores in one place. A reminder when a form is due. You choose who can see your record.</p><a href="patients.html">Read the patient guide</a></div>
-<div class="card"><h3>For clinicians</h3><p class="muted">The whole knee history on one screen. A short form at the end of each case. Your results next to the national picture.</p><a href="clinicians.html">Read the clinician guide</a></div>
-<div class="card"><h3>For clinic teams</h3><p class="muted">Register patients from the keyboard. Worklists show missing consent, overdue scores and unfinished operation forms.</p><a href="administrators.html">Read the admin guide</a></div>
+<div class="cols">
+<div class="col"><h3>For patients</h3><p class="muted">Your scans, letters and scores in one place. A reminder when a form is due. You choose who can see your record.</p><a href="patients.html">Read the patient guide</a></div>
+<div class="col"><h3>For clinicians</h3><p class="muted">The whole knee history on one screen. A short form at the end of each case. Your results next to the national picture.</p><a href="clinicians.html">Read the clinician guide</a></div>
+<div class="col"><h3>For clinic teams</h3><p class="muted">Register patients from the keyboard. Worklists show missing consent, overdue scores and unfinished operation forms.</p><a href="administrators.html">Read the admin guide</a></div>
 </div>
 </section>
 
 <section class="section" aria-labelledby="when">
+<p class="kicker">Follow-up</p>
 <h2 id="when">Scores at set points after surgery</h2>
-<p class="muted" style="max-width:40em">Patients fill in four short scores: IKDC, KOOS, a short form pain score and SANE. The main result the registry tracks is whether a knee needs revision surgery.</p>
+<p class="muted">Patients fill in four short scores: IKDC, KOOS, a short form pain score and SANE. The main result the registry tracks is whether a knee needs revision surgery.</p>
 <ol class="steps">
 <li><b>Before surgery</b><span class="muted">Starting point</span></li>
 <li><b>1 year</b><span class="muted">IKDC, KOOS, pain and SANE</span></li>
@@ -65,9 +66,10 @@
 </ol>
 </section>
 
-<section class="section" aria-labelledby="fig">
+<section class="section band" aria-labelledby="fig">
+<p class="kicker">Example record</p>
 <h2 id="fig">What a record shows</h2>
-<div class="multiples" style="max-width:720px">
+<div class="multiples" style="max-width:1000px;margin-top:28px">
 <figure><h3>IKDC</h3><p class="small muted" style="margin:0">0 to 100. Higher is better.</p><svg class="chart" viewBox="0 0 240 170" width="100%" role="img" aria-label="IKDC: before surgery 48, 1 year 82, 2 years due now"><line class="grid-line" x1="10" y1="132" x2="230" y2="132"></line><rect x="22" y="79.2" width="52" height="52.8" rx="3" fill="var(--c-base)"></rect><text class="val" x="48" y="73.2" text-anchor="middle">48</text><text x="48" y="152" text-anchor="middle">Before</text><rect x="96" y="41.8" width="52" height="90.2" rx="3" fill="var(--c-1y)"></rect><text class="val" x="122" y="35.8" text-anchor="middle">82</text><text x="122" y="152" text-anchor="middle">1 yr</text><rect x="170" y="82" width="52" height="50" fill="none" stroke="var(--muted)" stroke-dasharray="5 4"></rect><text x="196" y="112" text-anchor="middle">Due now</text><text x="196" y="152" text-anchor="middle">2 yrs</text></svg></figure>
 <figure><h3>KOOS Sport</h3><p class="small muted" style="margin:0">0 to 100. Higher is better.</p><svg class="chart" viewBox="0 0 240 170" width="100%" role="img" aria-label="KOOS Sport: before surgery 35, 1 year 70, 2 years due now"><line class="grid-line" x1="10" y1="132" x2="230" y2="132"></line><rect x="22" y="93.5" width="52" height="38.5" rx="3" fill="var(--c-base)"></rect><text class="val" x="48" y="87.5" text-anchor="middle">35</text><text x="48" y="152" text-anchor="middle">Before</text><rect x="96" y="55.0" width="52" height="77.0" rx="3" fill="var(--c-1y)"></rect><text class="val" x="122" y="49.0" text-anchor="middle">70</text><text x="122" y="152" text-anchor="middle">1 yr</text><rect x="170" y="82" width="52" height="50" fill="none" stroke="var(--muted)" stroke-dasharray="5 4"></rect><text x="196" y="112" text-anchor="middle">Due now</text><text x="196" y="152" text-anchor="middle">2 yrs</text></svg></figure>
 <figure><h3>Short form pain score</h3><p class="small muted" style="margin:0">0 to 10. <strong>Lower is better.</strong></p><svg class="chart" viewBox="0 0 240 170" width="100%" role="img" aria-label="Short form pain score, lower is better: before surgery 6, 1 year 2, 2 years due now"><line class="grid-line" x1="10" y1="132" x2="230" y2="132"></line><rect x="22" y="66.0" width="52" height="66.0" rx="3" fill="var(--c-base)"></rect><text class="val" x="48" y="60.0" text-anchor="middle">6</text><text x="48" y="152" text-anchor="middle">Before</text><rect x="96" y="110.0" width="52" height="22.0" rx="3" fill="var(--c-1y)"></rect><text class="val" x="122" y="104.0" text-anchor="middle">2</text><text x="122" y="152" text-anchor="middle">1 yr</text><rect x="170" y="82" width="52" height="50" fill="none" stroke="var(--muted)" stroke-dasharray="5 4"></rect><text x="196" y="112" text-anchor="middle">Due now</text><text x="196" y="152" text-anchor="middle">2 yrs</text></svg></figure>
@@ -78,17 +80,17 @@
 </section>
 
 <section class="section" aria-labelledby="sec">
-<div class="two">
-<h2 id="sec">Records locked on the device</h2>
+<div class="two split">
+<div><p class="kicker">Security</p><h2 id="sec">Records locked on the device</h2></div>
 <div><p>The plan is for each record to sit in its own encrypted vault, based on the sgit design, which is in beta. Data would be encrypted on the device before upload, so the server never sees the contents, file names or keys.</p>
 <p class="note">This mock-up has no real login, no encryption and no storage. How a lost vault key is recovered is still an open question. <a href="security.html">Read the security page</a>.</p></div>
 </div>
 </section>
 
-<section class="section" aria-labelledby="try" style="text-align:center">
-<h2 id="try">See it from each side</h2>
-<p class="muted">Open the demo as a patient, a clinician or a member of the clinic team. All data is made up.</p>
-<a class="btn" href="try/index.html">Try the demo</a>
+<section class="section band" aria-labelledby="try">
+<div class="cta"><div><h2 id="try">See it from each side</h2>
+<p class="muted">Open the demo as a patient, a clinician or a member of the clinic team. All data is made up.</p></div>
+<a class="btn" href="try/index.html">Try the demo</a></div>
 </section>
 
 </main>

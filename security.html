@@ -26,7 +26,8 @@
 </header>
 <main id="main" class="wrap" tabindex="-1">
 
-<div style="padding:48px 0 8px;max-width:46em">
+<div class="intro">
+<p class="kicker">What is real</p>
 <h1>Security</h1>
 <p class="lead">This page says what the mock-up does, what the design plans, and what is still unsolved.</p>
 </div>
@@ -42,14 +43,14 @@
 <tr><th scope="row">Forms</th><td>Nothing is sent anywhere.</td></tr>
 </tbody></table></div>
 </section>
-<section class="section" aria-labelledby="plan">
-<div class="two"><h2 id="plan">What the design plans</h2>
+<section class="section band" aria-labelledby="plan">
+<div class="two split"><h2 id="plan">What the design plans</h2>
 <div><p>Sensitive data would live in encrypted vaults built on sgit, an architecture by Dinis Cruz. sgit is in beta.</p>
 <ul><li>Data is encrypted on the device before upload, using AES-256-GCM.</li><li>The server never sees contents, file names or keys.</li><li>One vault key opens a vault. There is no password reset.</li><li>Public key messaging can send data from one vault to another.</li></ul>
 <p>Each patient record could be its own vault. Some key splitting in sgit is still a design in progress.</p></div></div>
 </section>
 <section class="section" aria-labelledby="open">
-<div class="two"><h2 id="open">Still unsolved</h2>
+<div class="two split"><h2 id="open">Still unsolved</h2>
 <div><p class="note"><strong>Losing a vault key means losing the data.</strong> A clinical record cannot work that way. Key recovery must be settled before any real record is stored.</p>
 <ul><li>Access in an emergency, when the patient cannot open their own record.</li><li>An access log that shows who opened a record, when and why. The demo shows how this might look.</li><li>Consent history, and what happens when consent is withdrawn.</li><li>A privacy notice, data protection impact assessment and Caldicott review. None are written yet.</li></ul></div></div>
 </section>

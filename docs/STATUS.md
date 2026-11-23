@@ -40,3 +40,4 @@ Phase 1 live at https://sportshealing.github.io/OMKH-Ligament-Registry/ . Waitin
 | 2026-11-22 | Added Find a surgeon and Research pages. Two-row desktop header. Repo stays public (owner decision, ABP P7). |
 | 2026-11-22 | Bronze and green palette. Scores changed to IKDC, KOOS, short form pain score and SANE (from mykneescore.com). Marx removed. |
 | 2026-11-22 | First successful deploy to GitHub Pages. |
+| 2026-11-23 | Visual refinement: Source Serif 4 titles, Hanken Grotesk body (self-hosted), open columns and section bands on public pages, softer demo panels. |
