@@ -54,25 +54,21 @@
       '<p><a href="#home">Back to your knee</a></p></div>';
   }
 
-  function draft() { var s = A.load(); if (!s.draft) s.draft = {}; return s.draft; }
-
-  function reminderCard(p) {
-    var st = A.status(p);
-    if (formDone()) return '<div class="info"><strong>Thank you, ' + esc(first(p)) + '.</strong> Your 2-year scores are in. Your next form is due in ' + A.fmtMonth(A.addYears(p.surgery.date, 5)) + '.</div>';
-    if (!st.dueSoon) return "";
-    return '<div class="card" style="border:2px solid var(--c-1y)"><h2>Hi ' + esc(first(p)) + ', one short form is waiting.</h2><p>Your ' + esc(st.dueSoon.label.replace(/^(\d+) years?$/, "$1-year")) + ' scores. It takes about five minutes. Your answers help surgeons learn which repairs last.</p><a class="btn" href="#form">Start the form</a></div>';
+  function trust() {
+    return '<section class="trust" aria-labelledby="trust-h"><h2 id="trust-h">Keeping your data safe</h2>' + A.trustRow("../security.html") + '</section>';
   }
 
   function home() {
-    var p = me();
-    return '<div class="phone stack"><div class="view-title"><h1>Your knee</h1><span class="tag ok">' + esc(p.knee) + ' knee</span></div>' +
-      reminderCard(p) +
-      '<section class="card" aria-labelledby="prog"><h2 id="prog">How your knee is doing</h2>' +
-      plain(p) +
-      '<figure>' + A.line(p, M.ikdc) + '<figcaption>IKDC score at each time point. 0 to 100. Higher is better.</figcaption></figure>' +
-      '<p><a href="#scores">See all your scores</a> or <a href="#timeline">your full timeline</a>.</p></section>' +
+    var p = me(), st = A.status(p), done = formDone();
+    var due = !done && st.dueSoon ? '<p class="info" style="margin:0"><span class="tag due">Due now</span> Hi ' + esc(first(p)) + '. Your ' + esc(st.dueSoon.label.replace(/^(\d+) years?$/, "$1-year")) + ' scores are waiting. About three minutes.</p>' : "";
+    var score = done
+      ? '<a class="cta-tile go" href="#results"><span class="t">See your latest results</span><span class="s">Your 2-year scores are in. Thank you, ' + esc(first(p)) + '.</span></a>'
+      : '<a class="cta-tile go" href="#form"><span class="t">Score your knee</span><span class="s">' + ALL_Q.length + ' short questions, one at a time. See your results straight away.</span></a>';
+    return '<div class="phone stack"><div class="view-title"><h1>Your knee</h1><span class="tag ok">' + esc(p.knee) + ' knee</span></div>' + due +
+      '<div class="cta-pair">' + score +
+      '<a class="cta-tile alt" href="#trends"><span class="t">See your trends</span><span class="s">Each score over time, from before surgery to now.</span></a></div>' +
       '<div class="grid"><a class="card list-link" href="#files"><span><strong>Scans and letters</strong><br><span class="muted">' + (p.scans.length + p.letters.length) + ' files</span></span><span aria-hidden="true">&rarr;</span></a>' +
-      '<a class="card list-link" href="#sharing"><span><strong>Who can see your record</strong><br><span class="muted">Change access</span></span><span aria-hidden="true">&rarr;</span></a></div></div>';
+      '<a class="card list-link" href="#sharing"><span><strong>Who can see your record</strong><br><span class="muted">Change access</span></span><span aria-hidden="true">&rarr;</span></a></div>' + trust() + '</div>';
   }
 
   function timeline() {
@@ -91,53 +87,114 @@
     }).join("") + '</ol></div>';
   }
 
-  function radios(name, opts, val) {
-    return '<div class="scale">' + opts.map(function (o, i) {
-      return '<label><input type="radio" id="' + name + '-' + i + '" name="' + name + '" value="' + i + '"' + (String(val) === String(i) ? " checked" : "") + '>' + esc(o) + '</label>';
-    }).join("") + '</div>';
+  // The four scores a patient sees. KOOS is shown as the average of its five parts (demo only).
+  var FOUR = [
+    { name: "IKDC", what: "What your knee lets you do.", max: 100, idx: [M.ikdc] },
+    { name: "KOOS", what: "Pain, stiffness, daily life, sport and how you live. Average of the five parts.", max: 100, idx: [M.koosPain, M.koosSym, M.koosAdl, M.koosSport, M.koosQol] },
+    { name: PAIN.label, short: PAIN.short, what: "How bad your knee pain has been.", max: PAIN.max, lower: PAIN.lowerBetter, idx: [M.pain] },
+    { name: "SANE", what: "Your knee as a percentage of normal.", max: 100, idx: [M.sane] }
+  ];
+  var SHORT = { pre: "Before", y1: "1 yr", y2: "2 yrs", y5: "5 yrs", y10: "10 yrs" };
+  function val(sc, f) {
+    if (!sc) return null;
+    var xs = f.idx.map(function (i) { return sc.v[i]; }).filter(function (x) { return x != null; });
+    return xs.length ? Math.round(xs.reduce(function (a, b) { return a + b; }, 0) / xs.length) : null;
   }
-  function stepShell(n, title, inner) {
-    return '<div class="phone"><p class="muted" style="margin:0">Step ' + n + ' of 4</p><div class="progress" aria-hidden="true"><span style="width:' + Math.round(n / 4 * 100) + '%"></span></div>' +
-      '<h1>' + title + '</h1><form id="qform" novalidate><div class="error-summary" tabindex="-1" hidden><h2>There is a problem</h2><ul></ul></div>' + inner + '</form></div>';
+  function series(p, f) {
+    return A.TPS.filter(function (t) { return val(p.scores[t[0]], f) != null; }).map(function (t) { return { tp: t[0], l: SHORT[t[0]], long: t[1], v: val(p.scores[t[0]], f) }; });
   }
+  function shown(f, v) { return f.lower ? v + " out of " + f.max : v + "%"; }
+  function better(f) { return f.lower ? "Lower is better." : "Higher is better."; }
+  function aria(f, s) { return f.name + " (0 to " + f.max + ", " + (f.lower ? "lower" : "higher") + " is better). " + s.map(function (x) { return x.long + ": " + x.v; }).join(", ") + "."; }
+  function barChart(f, s) {
+    var W = 280, H = 170, top = 22, base = 132, n = s.length, slot = (W - 20) / n, bw = Math.min(56, slot - 16), parts = [];
+    s.forEach(function (x, i) {
+      var cx = 10 + slot * i + slot / 2, h = Math.max(2, x.v / f.max * (base - top));
+      var col = i === n - 1 ? "var(--c-2y)" : i === 0 ? "var(--c-base)" : "var(--c-1y)";
+      parts.push('<rect x="' + (cx - bw / 2) + '" y="' + (base - h) + '" width="' + bw + '" height="' + h + '" rx="3" fill="' + col + '"></rect><text class="val" x="' + cx + '" y="' + (base - h - 6) + '" text-anchor="middle">' + x.v + '</text><text x="' + cx + '" y="' + (base + 20) + '" text-anchor="middle">' + (i === n - 1 ? "Now" : x.l) + '</text>');
+    });
+    return '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="' + esc(aria(f, s)) + '"><line class="grid-line" x1="6" y1="' + base + '" x2="' + (W - 6) + '" y2="' + base + '"></line>' + parts.join("") + '</svg>';
+  }
+  function lineChart(f, s) {
+    var W = 600, H = 220, k = 150 / f.max, n = s.length;
+    var pts = s.map(function (x, i) { return { x: n === 1 ? 310 : 90 + i * (440 / (n - 1)), y: 180 - x.v * k, v: x.v, l: x.l }; });
+    var out = '<svg class="chart big" viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="' + esc(aria(f, s)) + '">';
+    out += '<line class="grid-line" x1="50" y1="180" x2="570" y2="180"></line><line class="grid-line" x1="50" y1="30" x2="570" y2="30"></line><text x="44" y="36" text-anchor="end">' + f.max + '</text><text x="44" y="186" text-anchor="end">0</text>';
+    out += '<polyline points="' + pts.map(function (q) { return q.x + "," + q.y; }).join(" ") + '" fill="none" stroke="var(--c-2y)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></polyline>';
+    pts.forEach(function (q) { out += '<circle cx="' + q.x + '" cy="' + q.y + '" r="7" fill="var(--c-2y)"></circle><text class="val" x="' + q.x + '" y="' + (q.y - 14) + '" text-anchor="middle">' + q.v + '</text><text x="' + q.x + '" y="205" text-anchor="middle">' + q.l + '</text>'; });
+    return out + '</svg>';
+  }
+  var DISCLAIMER = '<p class="disclaimer" role="note">This is for guidance only. Your clinician will need to interpret these scores.</p>';
+
+  function draft() { var s = A.load(); if (!s.draft) s.draft = {}; return s.draft; }
+
   function form(step) {
-    var p = me();
-    if (formDone()) return '<div class="phone"><h1>Form already sent</h1><p>Thank you. Your 2-year scores are in.</p><a class="btn" href="#home">Back to your knee</a></div>';
-    var dr = draft();
-    function qs(list) {
-      return list.map(function (q) {
-        return '<fieldset id="' + q[0] + '"><legend>' + esc(q[2]) + ' <span class="muted small">(' + esc(q[1]) + ')</span></legend>' + radios(q[0], q[3], dr[q[0]]) + '</fieldset>';
-      }).join("");
-    }
+    var p = me(), n = ALL_Q.length;
+    if (formDone()) return '<div class="phone stack"><h1>Your 2-year scores are in</h1><p>Thank you. You can look at your results again, or see how they compare over time.</p><div class="btn-row"><a class="btn" href="#results">See your results</a><a class="btn btn-secondary" href="#trends">See your trends over time</a></div><p class="small muted">Demo only: <button type="button" class="linkish" id="restart">clear my answers and start again</button>.</p></div>';
     if (!step) {
-      return '<div class="phone stack"><div><h1>Your 2-year knee form</h1><p class="lead">About five minutes. Ten questions in three parts.</p></div>' +
-        '<div class="card"><h2>What we ask</h2><p><strong>Part 1. IKDC.</strong> Three questions about what your knee lets you do.</p><p><strong>Part 2. KOOS.</strong> Five questions about pain, stiffness, daily life, sport and how you live.</p><p><strong>Part 3. Pain and overall.</strong> The ' + esc(PAIN.label.toLowerCase()) + ' and one SANE question: your knee as a percentage of normal.</p>' +
-        '<p class="muted small">This is a shortened demo, not the validated forms. The full IKDC form has 18 questions and the full KOOS has 42. Nothing you choose is sent anywhere.</p></div>' +
-        '<div class="btn-row"><a class="btn" href="#form/1">Start</a><a href="#home">Do it later</a></div></div>';
+      return '<div class="phone stack"><div><h1>Score your knee</h1><p class="lead">' + n + ' short questions. One at a time. About three minutes.</p></div>' +
+        '<div class="card"><p>Tap an answer and the next question appears. You can go back at any time. When you finish, you see your scores straight away.</p>' +
+        '<p class="muted small">The questions come from IKDC, KOOS, the ' + esc(PAIN.label.toLowerCase()) + ' and SANE. This is a shortened demo, not the validated forms. Nothing you choose is sent anywhere.</p></div>' +
+        '<div class="btn-row"><a class="btn btn-big" href="#form/1">Start</a><a href="#home">Do it later</a></div></div>';
     }
-    if (step === "1") {
-      return stepShell(1, "Part 1. IKDC", '<p class="muted">Shortened demo. 3 of the 18 IKDC questions.</p>' + qs(IKDC_Q) +
-        '<div class="btn-row"><button class="btn" type="submit">Save and continue</button><a href="#form">Back</a></div>');
-    }
-    if (step === "2") {
-      return stepShell(2, "Part 2. KOOS", '<p class="muted">Shortened demo. 5 of the 42 KOOS questions. Think about the last week.</p>' + qs(KOOS_Q) +
-        '<div class="btn-row"><button class="btn" type="submit">Save and continue</button><a href="#form/1">Back</a></div>');
-    }
-    if (step === "3") {
-      return stepShell(3, "Part 3. Pain and overall", '<p class="muted">One pain question and one overall question.</p>' + qs(LAST_Q) +
-        '<div class="btn-row"><button class="btn" type="submit">Save and continue</button><a href="#form/2">Back</a></div>');
-    }
-    if (step === "4") {
-      var rows = ALL_Q.map(function (q) { return '<div class="row"><span>' + esc(q[2]) + '</span><strong>' + esc(dr[q[0]] != null ? q[3][dr[q[0]]] : "Not answered") + '</strong></div>'; }).join("");
-      return stepShell(4, "Check your answers", '<div class="card">' + rows + '</div><p style="margin-top:16px"><a href="#form/1">Change part 1</a>, <a href="#form/2">change part 2</a> or <a href="#form/3">change part 3</a>.</p><div class="btn-row"><button class="btn" type="submit">Send my answers</button></div>');
-    }
-    return '<div class="phone"><h1>Page not found</h1><a href="#form">Back to the form</a></div>';
+    var i = parseInt(step, 10);
+    if (!(i >= 1 && i <= n)) return '<div class="phone"><h1>Page not found</h1><a href="#form">Back to the start</a></div>';
+    var q = ALL_Q[i - 1], dr = draft(), cur = dr[q[0]], isNum = q[3].length > 6;
+    var hint = q[0] === PAIN_Q[0][0] ? PAIN.anchors.join(". ") + "." : q[0] === SANE_Q[0][0] ? "100% means your knee feels completely normal." : "";
+    var title = q[0] === PAIN_Q[0][0] ? PAIN.question : q[2];
+    var answers = q[3].map(function (o, k) {
+      return '<button type="button" class="answer" data-q="' + q[0] + '" data-v="' + k + '" aria-pressed="' + (String(cur) === String(k)) + '">' + esc(o) + '</button>';
+    }).join("");
+    var fwd = cur != null ? (i === n ? '<button type="button" class="btn" id="q-fwd">See my results</button>' : '<a class="btn btn-secondary" id="q-fwd" href="#form/' + (i + 1) + '">Forward</a>') : "";
+    return '<div class="phone"><p class="q-count">Question ' + i + ' of ' + n + ' <span class="muted">(' + esc(q[1]) + ')</span></p>' +
+      '<div class="progress" aria-hidden="true"><span style="width:' + Math.round((i - 1) / n * 100) + '%"></span></div>' +
+      '<h1 class="q-title" id="q-h">' + esc(title) + '</h1>' + (hint ? '<p class="muted" id="q-hint" style="margin:0">' + esc(hint) + '</p>' : "") +
+      '<div class="answers' + (isNum ? " num" : "") + '" role="group" aria-labelledby="q-h"' + (hint ? ' aria-describedby="q-hint"' : "") + '>' + answers + '</div>' +
+      '<div class="q-nav"><a class="btn btn-secondary" href="#form' + (i > 1 ? "/" + (i - 1) : "") + '">Back</a>' + fwd + '</div>' +
+      '<p class="small muted" style="margin-top:20px">Your answers are kept as you go. <a href="#home">Finish later</a>.</p></div>';
   }
-  function thanks() {
-    var p = me(); var a = A.load().answers[PID];
-    return '<div class="phone stack"><div class="card" style="text-align:center"><h1>Thank you, ' + esc(first(p)) + '</h1><p class="lead" style="margin:0 auto 16px">Your 2-year scores are in.</p>' +
-      (a ? '<div style="text-align:left"><h2>Your scores over time</h2>' + plain(p) + '</div><p class="small muted">Worked out from the short demo form, so these numbers are only for show.</p>' : "") +
-      '<p class="muted">Your next form is due in ' + A.fmtMonth(A.addYears(p.surgery.date, 5)) + '. We will remind you.</p><div class="btn-row" style="justify-content:center"><a class="btn" href="#home">Back to your knee</a><a href="#timeline">See your timeline</a></div></div></div>';
+
+  // Demo scoring only. Real forms have their own scoring rules.
+  function finish() {
+    var dr = draft(), v = [];
+    var missing = ALL_Q.map(function (q, i) { return dr[q[0]] == null ? i + 1 : 0; }).filter(Boolean);
+    if (missing.length) { A.go("form/" + missing[0]); return; }
+    v[M.ikdc] = Math.round(IKDC_Q.reduce(function (t, q) { return t + (4 - dr[q[0]]) * 25; }, 0) / IKDC_Q.length);
+    KOOS_Q.forEach(function (q, i) { v[M.koosPain + i] = 100 - dr[q[0]] * 25; });
+    v[M.pain] = PAIN.score(dr[PAIN_Q[0][0]]);
+    v[M.sane] = dr[SANE_Q[0][0]] * 10;
+    var s = A.load(); s.answers[PID] = { tp: "y2", v: v }; delete s.draft; A.save();
+    A.logAccess(PID, "Megan Sample", "Filled in 2-year scores");
+    A.go("results");
+  }
+
+  function results() {
+    var p = me();
+    if (!formDone()) return '<div class="phone stack"><h1>No new results yet</h1><p>Score your knee to see your results.</p><a class="btn" href="#form">Score your knee</a></div>';
+    var rows = "", figs = "";
+    FOUR.forEach(function (f) {
+      var s = series(p, f), now = s[s.length - 1], prev = s.length > 1 ? s[s.length - 2] : null, ch = "";
+      if (prev) { var d = now.v - prev.v; ch = d === 0 ? "Same" : ((d > 0) !== !!f.lower ? "Better by " : "Worse by ") + Math.abs(d); }
+      rows += '<tr><th scope="row">' + esc(f.short || f.name) + '</th><td class="num"><strong style="white-space:nowrap">' + shown(f, now.v) + '</strong><br><span class="small muted">' + (ch || "First score") + '</span></td><td class="num" style="white-space:nowrap">' + (prev ? shown(f, prev.v) : "None") + '</td></tr>';
+      figs += '<figure class="card"><h2 style="font-size:21px;margin:0">' + esc(f.name) + '</h2><p class="big-num">' + (f.lower ? now.v + ' <small>out of ' + f.max + '</small>' : now.v + '%') + '</p><p class="small muted" style="margin:0">' + esc(f.what) + ' ' + (f.lower ? "<strong>Lower is better.</strong>" : better(f)) + '</p>' + barChart(f, s) + '</figure>';
+    });
+    return '<div class="phone stack"><div><h1>Your results</h1><p class="lead">Thank you, ' + esc(first(p)) + '. Here is how your knee scores today, next to your earlier scores.</p></div>' +
+      '<section class="card" aria-labelledby="res-t"><h2 id="res-t">Your four scores</h2><div class="scroll"><table class="ruled"><thead><tr><th scope="col">Score</th><th scope="col" class="num">Today</th><th scope="col" class="num">Last time</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+      '<p class="small muted" style="margin-top:8px">IKDC, KOOS and SANE run 0 to 100%. Higher is better. The ' + esc(PAIN.label.toLowerCase()) + ' runs ' + PAIN.min + ' to ' + PAIN.max + '. Lower is better. Worked out from the short demo form, so the numbers are only for show.</p></section>' +
+      '<div class="result-grid">' + figs + '</div>' +
+      '<p class="legend bars-legend"><span><i class="sw" style="background:var(--c-base)"></i>Before surgery</span><span><i class="sw" style="background:var(--c-1y)"></i>Earlier</span><span><i class="sw" style="background:var(--c-2y)"></i>Now</span></p>' +
+      DISCLAIMER +
+      '<div class="btn-row"><a class="btn btn-big" href="#trends">See your trends over time</a><a href="#home">Back to your knee</a></div></div>';
+  }
+
+  function trends() {
+    var p = me(), figs = FOUR.map(function (f) {
+      var s = series(p, f);
+      return '<figure class="card"><h2 style="font-size:21px;margin:0">' + esc(f.name) + '</h2><p class="small muted" style="margin:0 0 8px">' + esc(f.what) + ' 0 to ' + f.max + '. ' + (f.lower ? "<strong>Lower is better.</strong>" : better(f)) + '</p>' + (s.length ? lineChart(f, s) : '<p class="muted">No scores yet.</p>') + '</figure>';
+    }).join("");
+    return '<div class="phone stack"><div class="view-title"><h1>Your trends</h1></div><p class="lead" style="margin:0">Each score at every time point, from before surgery to now.</p>' +
+      (formDone() ? "" : '<p class="info" style="margin:0">Your 2-year scores are not in yet. <a href="#form">Score your knee</a> to add today to these charts.</p>') +
+      figs + '<section class="card"><h2>In words</h2>' + plain(p) + '<p class="small"><a href="#scores">See every score in a table</a>.</p></section>' + DISCLAIMER + '</div>';
   }
 
   function files() {
@@ -180,37 +237,20 @@
   }
 
   window.afterRender = function (route) {
-    var f = document.getElementById("qform");
-    if (f) f.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      var step = location.hash.split("/")[1];
-      var dr = draft(), errs = [];
-      var qs = step === "1" ? IKDC_Q : step === "2" ? KOOS_Q : step === "3" ? LAST_Q : [];
-      qs.forEach(function (q) {
-        var c = f.querySelector('input[name="' + q[0] + '"]:checked');
-        if (c) dr[q[0]] = +c.value; else errs.push([q[0] + "-0", "Choose an answer: " + (q[2] || q[1])]);
+    var busy = false;
+    document.querySelectorAll(".answer").forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (busy) return; busy = true;
+        draft()[b.getAttribute("data-q")] = +b.getAttribute("data-v"); A.save();
+        document.querySelectorAll(".answer").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+        var i = parseInt(location.hash.split("/")[1], 10);
+        setTimeout(function () { if (i >= ALL_Q.length) finish(); else A.go("form/" + (i + 1)); }, 250);
       });
-      if (errs.length) {
-        A.save(); A.showErrors(f, errs); return;
-      }
-      A.save();
-      if (step === "1") A.go("form/2");
-      else if (step === "2") A.go("form/3");
-      else if (step === "3") A.go("form/4");
-      else {
-        var missing = ALL_Q.filter(function (q) { return dr[q[0]] == null; });
-        if (missing.length) { A.go("form/1"); return; }
-        // Demo scoring only. Real forms have their own scoring rules.
-        var v = [];
-        v[M.ikdc] = Math.round(IKDC_Q.reduce(function (t, q) { return t + (4 - dr[q[0]]) * 25; }, 0) / IKDC_Q.length);
-        KOOS_Q.forEach(function (q, i) { v[M.koosPain + i] = 100 - dr[q[0]] * 25; });
-        v[M.pain] = PAIN.score(dr[PAIN_Q[0][0]]);
-        v[M.sane] = dr[SANE_Q[0][0]] * 10;
-        var s = A.load(); s.answers[PID] = { tp: "y2", v: v }; delete s.draft; A.save();
-        A.logAccess(PID, "Megan Sample", "Filled in 2-year scores");
-        A.go("thanks");
-      }
     });
+    var fw = document.getElementById("q-fwd");
+    if (fw && fw.tagName === "BUTTON") fw.addEventListener("click", finish);
+    var rs = document.getElementById("restart");
+    if (rs) rs.addEventListener("click", function () { var s = A.load(); delete s.answers[PID]; delete s.draft; A.save(); A.go("form/1"); });
     var pf = document.getElementById("prefs");
     if (pf) pf.addEventListener("submit", function (ev) {
       ev.preventDefault(); var s = A.load();
@@ -226,5 +266,5 @@
     });
   };
 
-  A.router({ home: home, scores: scores, timeline: timeline, form: form, thanks: thanks, files: files, file: file, reminders: reminders, sharing: sharing }, "home");
+  A.router({ home: home, scores: scores, timeline: timeline, form: form, results: results, trends: trends, thanks: results, files: files, file: file, reminders: reminders, sharing: sharing }, "home");
 })();

@@ -31,3 +31,8 @@ Budget: 1M tokens (set by the user, 2026-11-23). Warn at 800k.
 |---|-------|------|--------|------|
 | 1 | UI/UX agent | Less blocky redesign, serif titles, self-hosted fonts | 146k | |
 | 2 | Conductor | Brief, review, deploy | ~25k | estimate |
+| 3 | UI/UX agent A | One-question score flow, results, trends, roles, trust, landing | 155k | |
+| 4 | UI/UX agent B | Admin analytics and invented cohort | 156k | |
+| 5 | Conductor | Briefs, review, tests | ~40k | estimate |
+
+Phase 2 so far: about 520k of 1M.

@@ -15,26 +15,35 @@
     return out.join(" ");
   }
 
+  // A clinician sees only their own patients. The administrator sees everyone.
+  function mine() { return A.patients().filter(function (p) { return p.surgeon === ME; }); }
+  function own(id) { var p = A.patient(id); return p && p.surgeon === ME ? p : null; }
+  function notYours(id) {
+    var p = A.patient(id);
+    if (!p) return '<h1>Patient not found</h1><a href="#list">Back to your patients</a>';
+    return '<h1>Not one of your patients</h1><p>This record belongs to another surgeon. A clinician sees only their own patients. In the demo, the administrator role can see every patient.</p><a class="btn" href="#list">Back to your patients</a>';
+  }
+
   function list() {
     var q = (A.load().search || "");
-    return '<div class="view-title"><h1>Patients</h1><a class="btn btn-secondary btn-small" href="#outcomes">My outcomes</a></div>' +
+    return '<div class="view-title"><div><h1>Your patients: ' + mine().length + '</h1><p class="muted" style="margin:0">Only patients under ' + esc(ME) + '. Other surgeons\' patients are not shown.</p></div><a class="btn btn-secondary btn-small" href="#outcomes">My outcomes</a></div>' +
       '<form id="search" class="filters" role="search"><div class="field"><label for="q">Find a patient</label><span class="hint" id="q-hint">NHS number or name. For example 999 526 0182.</span><input type="search" id="q" data-hint="q-hint" aria-describedby="q-hint" autocomplete="off" value="' + esc(q) + '"></div><button class="btn" type="submit">Search</button></form>' +
       '<p id="count" class="muted" role="status"></p><div class="card" style="padding:8px 16px"><div class="scroll"><table><caption class="visually-hidden">Patient list</caption><thead><tr><th scope="col">Name</th><th scope="col">NHS no.</th><th scope="col">Knee</th><th scope="col">Surgery</th><th scope="col">Status</th></tr></thead><tbody id="rows"></tbody></table></div></div>';
   }
   function fillRows(q) {
     var norm = q.replace(/\s+/g, "").toLowerCase();
-    var ps = A.patients().filter(function (p) { return !norm || p.nhs.replace(/\s+/g, "").indexOf(norm) >= 0 || p.name.toLowerCase().replace(/\s+/g, "").indexOf(norm) >= 0; });
+    var ps = mine().filter(function (p) { return !norm || p.nhs.replace(/\s+/g, "").indexOf(norm) >= 0 || p.name.toLowerCase().replace(/\s+/g, "").indexOf(norm) >= 0; });
     document.getElementById("rows").innerHTML = ps.map(function (p) {
       return '<tr><td><a href="#patient/' + p.id + '"><strong>' + esc(p.name) + '</strong></a>' + (p.added ? ' <span class="tag ok">New</span>' : '') + '</td><td class="mono">' + esc(p.nhs) + '</td><td>' + esc(p.knee) + '</td><td class="mono">' + (p.surgery ? fmt(p.surgery.date) : "None yet") + '</td><td>' + tags(p) + '</td></tr>';
     }).join("") || '<tr><td colspan="5">No patient matches. Check the NHS number, or <a href="admin.html#register">register a new patient</a>.</td></tr>';
-    document.getElementById("count").textContent = ps.length + (ps.length === 1 ? " patient" : " patients") + (norm ? " match" : " in your list") + ".";
+    document.getElementById("count").textContent = ps.length + (ps.length === 1 ? " patient" : " patients") + (norm ? " match in your list" : " in your list") + ".";
     return ps;
   }
 
   function record(id) {
     if (!id) return '<h1>Record</h1><p>Choose a patient first.</p><a class="btn" href="#list">Go to the patient list</a>';
-    var p = A.patient(id);
-    if (!p) return '<h1>Patient not found</h1><a href="#list">Back to the patient list</a>';
+    var p = own(id);
+    if (!p) return notYours(id);
     var s = A.load(); s.viewed = s.viewed || {};
     if (!s.viewed[id]) { s.viewed[id] = 1; A.save(); A.logAccess(id, ME, "Opened record in clinic"); p = A.patient(id); }
     var st = A.status(p);
@@ -87,7 +96,7 @@
 
   function doc(kind) {
     return function (id, i) {
-      var p = A.patient(id); var f = p && (kind === "scan" ? p.scans[+i] : p.letters[+i]);
+      var p = own(id); if (!p) return notYours(id); var f = (kind === "scan" ? p.scans[+i] : p.letters[+i]);
       if (!f) return '<h1>Not found</h1><a href="#list">Back to the patient list</a>';
       return '<p><a href="#patient/' + id + '">Back to ' + esc(p.name) + '</a></p><div class="card" style="max-width:760px"><h1 style="font-size:30px">' + esc(f[1]) + '</h1><p class="muted mono">' + fmt(f[0]) + '</p>' +
         (kind === "scan" ? '<div class="info">The image viewer is not built in this mock-up.</div><h2 style="margin-top:16px">Report</h2><p>' + esc(f[2]) + '</p>' : '<p>Author: ' + esc(f[2]) + '.</p><div class="info">Placeholder text. A real note would appear here.</div>') + '</div>';
@@ -107,14 +116,15 @@
     return '<div class="field"><label for="' + id + '">' + label + '</label><select id="' + id + '"><option value="">Choose</option>' + opts.map(function (o) { return '<option' + (val === o ? " selected" : "") + '>' + esc(o) + '</option>'; }).join("") + '</select></div>';
   }
   function opform(id) {
-    var ps = A.patients().filter(function (p) { return p.surgery; });
+    var ps = mine().filter(function (p) { return p.surgery; });
     if (!id) {
       var open = ps.filter(function (p) { return A.status(p).opForm === "incomplete"; });
       return '<h1>Surgical form</h1><p>Fill this in at the end of a case. Four questions. Aim for under two minutes.</p><div class="card"><h2>Forms to finish</h2>' +
         (open.length ? open.map(function (p) { return '<a class="list-link" href="#opform/' + p.id + '"><span><strong>' + esc(p.name) + '</strong><br><span class="muted"><span class="mono">' + esc(p.nhs) + '</span>. Surgery <span class="mono">' + fmt(p.surgery.date) + '</span></span></span><span>Open form</span></a>'; }).join("") : '<p class="muted">All surgical forms are complete.</p>') + '</div>';
     }
-    var p = A.patient(id);
-    if (!p || !p.surgery) return '<h1>No surgery to record</h1><a href="#opform">Back to forms</a>';
+    var p = own(id);
+    if (!p) return notYours(id);
+    if (!p.surgery) return '<h1>No surgery to record</h1><a href="#opform">Back to forms</a>';
     var s = p.surgery;
     return '<p class="muted" style="margin:0"><a href="#patient/' + id + '">' + esc(p.name) + '</a> / Surgical form</p><h1>Surgical form</h1><p><span class="mono">' + esc(p.nhs) + '</span>. ' + esc(p.knee) + ' knee. ' + esc(s.type) + ', <span class="mono">' + fmt(s.date) + '</span>.</p>' +
       '<form id="opf" class="card" novalidate style="max-width:860px"><div class="error-summary" tabindex="-1" hidden><h2>There is a problem</h2><ul></ul></div>' +

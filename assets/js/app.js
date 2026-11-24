@@ -205,7 +205,39 @@
 
   function go(h) { if (location.hash.replace(/^#/, "") === h) window.dispatchEvent(new HashChangeEvent("hashchange")); else location.hash = h; }
 
-  window.App = { go: go, load: load, save: save, fmt: fmt, fmtMonth: fmtMonth, addYears: addYears, age: age, esc: esc, TPS: TPS, MEASURES: MEASURES, M: M, PAIN: PAIN, scale: scale,
+
+  // Demo role bar: label the switch and say what each role can see. Runs on every demo page.
+  var SCOPE = { "patient.html": "As a patient you see only your own record.", "clinician.html": "As a clinician you see only your own patients.", "admin.html": "As an administrator you see all patients and all data." };
+  (function roleBar() {
+    var bar = document.querySelector(".demo-bar"), nav = bar && bar.querySelector(".roles");
+    if (!nav || bar.querySelector(".roles-label")) return;
+    nav.setAttribute("aria-label", "Demo: switch role");
+    var wrap = document.createElement("div"); wrap.className = "role-switch";
+    var lab = document.createElement("p"); lab.className = "roles-label"; lab.textContent = "Demo: switch role";
+    var note = document.createElement("p"); note.className = "roles-note";
+    note.textContent = "In the real system each person sees only their own role.";
+    nav.parentNode.insertBefore(wrap, nav); wrap.appendChild(lab); wrap.appendChild(nav); wrap.appendChild(note);
+    var cur = nav.querySelector("[aria-current=page]"), who = bar.querySelector(".who");
+    var sc = cur && SCOPE[cur.getAttribute("href")];
+    if (sc && who) { var b = document.createElement("strong"); b.className = "scope"; b.textContent = sc; who.insertBefore(document.createTextNode(" "), who.firstChild); who.insertBefore(b, who.firstChild); }
+  })();
+
+  // Quiet row of honest security points. Each links to the security page.
+  var ICON = {
+    lock: '<rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path>',
+    eye: '<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle>',
+    log: '<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"></path>',
+    shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path>',
+    info: '<circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path>'
+  };
+  function trustRow(href) {
+    var items = [["lock", "Encrypted on your device before upload", "Planned. sgit vault design, in beta."], ["eye", "You choose who sees your record", "Shown in this demo."], ["log", "Every access is logged", "Shown in this demo."], ["shield", "UK GDPR and NHS data security standards", "Planned. Not yet assessed."], ["info", "Invented data in this mock-up", "No real login or encryption here."]];
+    return '<ul class="trust-row" aria-label="Data security">' + items.map(function (t) {
+      return '<li><a href="' + href + '"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + ICON[t[0]] + '</svg><span><strong>' + t[1] + '</strong><br><span class="trust-status">' + t[2] + '</span></span></a></li>';
+    }).join("") + '</ul>';
+  }
+
+  window.App = { trustRow: trustRow, go: go, load: load, save: save, fmt: fmt, fmtMonth: fmtMonth, addYears: addYears, age: age, esc: esc, TPS: TPS, MEASURES: MEASURES, M: M, PAIN: PAIN, scale: scale,
     nhsValid: nhsValid, nhsFormat: nhsFormat, patients: patients, patient: patient, status: status, toast: toast, logAccess: logAccess,
     bars: bars, multiples: multiples, line: line, scoreTable: scoreTable, router: router, showErrors: showErrors, today: TODAY, d: d };
 })();

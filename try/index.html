@@ -28,13 +28,14 @@
 
 <div style="padding:48px 0 16px;max-width:46em">
 <h1>Try it out</h1>
-<p class="lead">Pick a role. Each one opens a working demo with invented patients. Changes you make last until you close this tab.</p>
+<p class="lead">Pick a role. All patients are invented. Changes last until you close this tab.</p>
 </div>
-<div class="grid" style="padding-bottom:48px">
-<div class="card"><h2>Patient</h2><p class="muted">Phone first. Your timeline, a form that is due, scans and letters, and who can see your record.</p><a class="btn" href="signin.html?role=patient">Continue as a patient</a></div>
-<div class="card"><h2>Clinician</h2><p class="muted">Patient list, full record, surgical form and your outcomes against the national picture.</p><a class="btn" href="signin.html?role=clinician">Continue as a clinician</a></div>
-<div class="card"><h2>Administrator</h2><p class="muted">Today's clinic, registration, triage, worklists and the consent tracker.</p><a class="btn" href="signin.html?role=admin">Continue as an administrator</a></div>
+<div class="grid">
+<div class="card stack"><h2>Patient</h2><p class="muted" style="margin:0">Score your knee and see your trends.</p><p class="sees" style="margin:0">Sees only their own record.</p><a class="btn" href="signin.html?role=patient">Continue as a patient</a></div>
+<div class="card stack"><h2>Clinician</h2><p class="muted" style="margin:0">Patient records, surgical form and outcomes.</p><p class="sees" style="margin:0">Sees only their own patients.</p><a class="btn" href="signin.html?role=clinician">Continue as a clinician</a></div>
+<div class="card stack"><h2>Administrator</h2><p class="muted" style="margin:0">Clinic list, registration and worklists.</p><p class="sees" style="margin:0">Sees all patients and all data.</p><a class="btn" href="signin.html?role=admin">Continue as an administrator</a></div>
 </div>
+<p class="muted" style="padding:16px 0 48px">In the demo you can switch roles at any time. In the real system each person sees only their own role.</p>
 
 </main>
 <footer class="site-footer">
