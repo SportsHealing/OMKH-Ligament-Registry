@@ -1,0 +1,39 @@
+/* Admin analytics views. Loaded by try/admin.html only. Uses the colour tokens from site.css. */
+:root {
+  --an-1: #1F5C40; --an-2: #9A6A2A; --an-3: #3B5B7A; --an-4: #8C3B4A; --an-5: #5A6B2E; --an-6: #6B5B8C;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --an-1: #7CC29A; --an-2: #D9A55B; --an-3: #8DB4DA; --an-4: #E0909E; --an-5: #B5C77A; --an-6: #B6A6DA;
+  }
+}
+:root[data-theme="dark"] {
+  --an-1: #7CC29A; --an-2: #D9A55B; --an-3: #8DB4DA; --an-4: #E0909E; --an-5: #B5C77A; --an-6: #B6A6DA;
+}
+
+.an-flag { background: var(--warn-bg); color: var(--warn); border-radius: 14px; padding: 12px 18px; margin: 0 0 20px; }
+.an-flag strong { color: inherit; }
+.an-admin-note { margin: 0 0 20px; }
+
+.an-controls { margin-bottom: 16px; }
+.an-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 0 20px; }
+.an-row > * { min-width: 0; }
+.an-row select, .an-search input { width: 100%; max-width: 100%; }
+.an-filterset { margin: 8px 0 0; }
+.an-status { margin: 0 0 16px; }
+
+.an-h { font-size: 22px; margin: 0 0 8px; }
+.an-fig figure { margin: 0; }
+.chart.an-chart text { font-size: 15px; }
+.chart.an-chart .val { font-size: 14px; }
+.an-multiples .chart.an-chart text { font-size: 16px; }
+
+.an-legend { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 10px 0 0; padding: 0; font-size: 15px; }
+.an-legend li { display: inline-flex; align-items: center; gap: 8px; }
+.an-sw { flex: 0 0 auto; }
+
+.an-results { list-style: none; margin: 0; padding: 0; }
+.an-search { max-width: 760px; }
+.an-facts { grid-template-columns: max-content minmax(0, 1fr); }
+@media (max-width: 480px) { .an-facts { grid-template-columns: minmax(0, 1fr); } .an-facts dd { margin-bottom: 6px; } }
+tr.an-total > * { font-weight: 700; }

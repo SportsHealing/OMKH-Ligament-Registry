@@ -7,6 +7,7 @@
 <meta name="description" content="Demo admin dashboard.">
 <title>Admin dashboard | UK Ligament Registry mock-up</title>
 <link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/analytics.css">
 <script src="../assets/js/site.js"></script>
 </head>
 <body>
@@ -27,7 +28,7 @@
 <main id="main" class="wrap" tabindex="-1">
 
 <div class="demo-bar"><nav class="roles" aria-label="Demo role"><a href="patient.html">Patient</a><a href="clinician.html">Clinician</a><a href="admin.html" aria-current="page">Administrator</a></nav><p class="who" style="margin:0">Signed in as Test Administrator B (invented). <a href="index.html">Switch role</a></p></div>
-<nav class="subnav" aria-label="Admin sections"><a href="#today" data-route="today">Today</a><a href="#register" data-route="register">Register</a><a href="#triage" data-route="triage">Triage</a><a href="#status" data-route="status">Data status</a><a href="#overdue" data-route="overdue">Overdue</a><a href="#consent" data-route="consent">Consent</a></nav>
+<nav class="subnav" aria-label="Admin sections"><a href="#today" data-route="today">Today</a><a href="#register" data-route="register">Register</a><a href="#triage" data-route="triage">Triage</a><a href="#status" data-route="status">Data status</a><a href="#overdue" data-route="overdue">Overdue</a><a href="#consent" data-route="consent">Consent</a><a href="#all" data-route="all">All patients</a><a href="#timeline" data-route="timeline">Scores by time</a><a href="#bypatient" data-route="bypatient">Scores by patient</a><a href="#trends" data-route="trends">Score trends</a></nav>
 <div id="view" tabindex="-1" aria-live="polite"></div>
 <div id="toast" class="toast" role="status" hidden></div>
 
@@ -41,6 +42,7 @@
 </footer>
 <script src="../assets/js/data.js"></script>
 <script src="../assets/js/app.js"></script>
+<script src="../assets/js/cohort.js"></script>
 <script src="../assets/js/admin.js"></script>
 </body>
 </html>
