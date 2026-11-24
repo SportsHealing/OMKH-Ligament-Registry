@@ -35,4 +35,6 @@ Budget: 1M tokens (set by the user, 2026-11-23). Warn at 800k.
 | 4 | UI/UX agent B | Admin analytics and invented cohort | 156k | |
 | 5 | Conductor | Briefs, review, tests | ~40k | estimate |
 
-Phase 2 so far: about 520k of 1M.
+| 6 | Conductor | Test reruns, deploy fix | ~35k | estimate |
+
+Phase 2 so far: about 555k of 1M.

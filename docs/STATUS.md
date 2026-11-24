@@ -42,3 +42,4 @@ Phase 1 live at https://sportshealing.github.io/OMKH-Ligament-Registry/ . Waitin
 | 2026-11-22 | First successful deploy to GitHub Pages. |
 | 2026-11-23 | Visual refinement: Source Serif 4 titles, Hanken Grotesk body (self-hosted), open columns and section bands on public pages, softer demo panels. |
 | 2026-11-24 | Mr Gupte feedback: one-question score flow with results and trends, disclaimer, role access, trust signals, calmer landing, admin analytics. |
+| 2026-11-24 | Deploy fixed: upload-pages-artifact v4, checkout v5, actions read permission on the deploy job. Feedback changes live. |

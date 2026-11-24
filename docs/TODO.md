@@ -1,7 +1,7 @@
 # To do
 
 ## Now
-- [ ] Mr Gupte feedback 2026-11-24: one-question score flow with results and trends, role access, trust signals, calmer landing, admin analytics (in progress)
+- [x] Mr Gupte feedback 2026-11-24: one-question score flow with results and trends, role access, trust signals, calmer landing, admin analytics. Live 2026-11-24
 - [x] ABP review agent produces v2
 - [x] 5 design concepts in Claude Design
 - [x] Synthetic user review of the concepts
