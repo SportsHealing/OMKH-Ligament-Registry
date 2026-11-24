@@ -60,6 +60,27 @@ Mr Gupte wants three groups served, not just surgeons.
 - Take a short triage history before the consultant sees the patient.
 - Track consent, missing data and overdue follow-ups.
 
+## Feedback from Mr Gupte, 2026-11-24
+
+Access by role:
+- Patient: own record and the patient area only.
+- Clinician: own patients and own clinician area only.
+- Administrator: all patients and all data.
+
+Patient scores:
+- Clear call to action to score the knee.
+- One question at a time. Auto-advance on answer. Back button. Forward button only after going back.
+- Results shown straight away as the reward: table, bar charts, percentage scores.
+- Clear call to action to see trends over time.
+- Disclaimer: "This is for guidance only. Your clinician will need to interpret these scores."
+
+Admin analytics:
+- Scores by time point for the whole cohort.
+- Scores for one patient across their timeline.
+- Score trends by graft, fixation and other procedures (meniscus repair, LET), plus age and sex.
+
+Also: trust signals on data security, and calmer landing pages.
+
 ## Security model (to be designed properly later)
 
 Sensitive data is meant to live in an encrypted vault built on the sgit architecture by Dinis Cruz (sgit.ai).
